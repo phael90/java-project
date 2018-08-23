@@ -30,10 +30,13 @@ public class Runner {
         foundUser.setUsername("digory");
         DBHelper.update(foundUser);
 
-        DBHelper.delete(foundUser);
+//        DBHelper.delete(foundUser);
 
 //        Advert foundAdvert = DBHelper.findById(Advert.class, 1);
 //        DBHelper.delete(foundAdvert);
+
+        List<User> allUsers = DBHelper.getAll(User.class);
+        List<Advert> allAdverts = DBHelper.getAll(Advert.class);
 
 
     }
