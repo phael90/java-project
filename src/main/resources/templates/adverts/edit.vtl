@@ -11,7 +11,10 @@
         <label for="category">Category</label>
         <select name="category" id="category" required="true">
             #foreach ($category in $allCategories)
-            <option value="$category"  #if ($advert.getCategory() == $category selected="selected" #end >
+            <option value="$category"
+                    #if ($advert.getCategory() == $category)
+                    selected="selected"
+                    #end >
                 $category.getNiceName()
             </option>
             #end
