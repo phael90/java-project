@@ -1,0 +1,27 @@
+<p>Edit User Details</p>
+
+<form action="/users/$editingUser.getId()" method="post" class="editUserForm">
+
+    <label for="username">Username:</label>
+    <input type="text" class="inputbox" name="username" required="true" id="username" value="$editingUser.getUsername()">
+
+    <br>
+
+    <label for="firstName">First Name:</label>
+    <input type="text" class="inputbox" name="firstName" required="true" id="firstName" value="$editingUser.getFirstName()">
+
+    <br>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" class="inputbox" name="lastName" required="true" id="lastName" value="$editingUser.getLastName()">
+
+    <br>
+
+    <label for="eMail">e-Mail:</label>
+    <input type="email" class="inputbox" name="eMail" required="true" id="eMail" value="$editingUser.geteMail()">
+
+    <br>
+
+    <input type="submit" class="button" value="Update Details">
+
+</form>
