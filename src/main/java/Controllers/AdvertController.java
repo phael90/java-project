@@ -2,9 +2,9 @@ package Controllers;
 
 import db.DBHelper;
 import models.Advert;
+import models.Category;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -28,6 +28,20 @@ public class AdvertController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
+
+        //TODO: NEW
+
+        get("/adverts/new", (req, res) -> {
+
+            Category[] allCategories = Category.values();
+
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("allCategories", allCategories);
+            model.put("template", "templates/adverts/new.vtl");
+
+            return new ModelAndView(model, "templates/layout.vtl");
+
+        }, new VelocityTemplateEngine());
     }
 
 }
