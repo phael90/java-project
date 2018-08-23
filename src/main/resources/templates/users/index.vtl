@@ -1,0 +1,19 @@
+<p>All Users</p>
+
+<div class="usersContainer">
+
+    <table>
+
+        <tr>
+            <th>Username</th>
+        </tr>
+
+        #foreach ($user in $allUsers)
+            <tr>
+                <td>$user.getUsername</td>
+            </tr>
+        #end
+
+    </table>
+
+</div>

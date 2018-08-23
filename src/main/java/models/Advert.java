@@ -1,7 +1,5 @@
 package models;
 
-import org.hibernate.annotations.Cascade;
-
 import javax.persistence.*;
 
 @Entity
