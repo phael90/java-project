@@ -1,8 +1,11 @@
 package models;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "users")
 public class User {
 
     private int id;
@@ -23,6 +26,9 @@ public class User {
         this.adverts = new ArrayList<Advert>();
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     public int getId() {
         return id;
     }
@@ -31,6 +37,7 @@ public class User {
         this.id = id;
     }
 
+    @Column(name = "username")
     public String getUsername() {
         return username;
     }
@@ -39,6 +46,7 @@ public class User {
         this.username = username;
     }
 
+    @Column(name = "first_name")
     public String getFirstName() {
         return firstName;
     }
@@ -47,6 +55,7 @@ public class User {
         this.firstName = firstName;
     }
 
+    @Column(name = "last_name")
     public String getLastName() {
         return lastName;
     }
@@ -55,6 +64,7 @@ public class User {
         this.lastName = lastName;
     }
 
+    @Column(name = "email")
     public String geteMail() {
         return eMail;
     }
@@ -63,6 +73,7 @@ public class User {
         this.eMail = eMail;
     }
 
+    @OneToMany(mappedBy = "user")
     public List<Advert> getAdverts() {
         return adverts;
     }
