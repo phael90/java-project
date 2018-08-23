@@ -1,0 +1,26 @@
+<p>$user.getUsername()</p>
+
+<ul>
+    <li>Username: $user.getUsername()</li>
+    <li>First Name: $user.getFirstName()</li>
+    <li>Last Name: $user.getLastName()</li>
+    <li>e-Mail: $user.geteMail()</li>
+</ul>
+
+<table>
+
+    <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Price</th>
+    </tr>
+
+    #foreach ($advert in $userAdverts)
+        <tr>
+            <td>$advert.getTitle()</td>
+            <td>$advert.getCategory().getNiceName()</td>
+            <td>$advert.getPrice()</td>
+        </tr>
+    #end
+
+</table>

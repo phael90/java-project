@@ -1,7 +1,8 @@
 package Controllers;
 
 import db.DBHelper;
-import models.Category;
+import db.DBUser;
+import models.Advert;
 import models.User;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -61,6 +62,22 @@ public class UserController {
         }, new VelocityTemplateEngine());
 
         //    SHOW
+
+        get("/users/:id", (req, res) -> {
+
+            int userId = Integer.parseInt(req.params(":id"));
+            User user = DBHelper.findById(User.class, userId);
+
+            List<Advert> userAdverts = DBUser.getAllAdverts(user);
+
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("user", user);
+            model.put("userAdverts", userAdverts);
+            model.put("template", "templates/users/show.vtl");
+
+            return new ModelAndView(model, "templates/layout.vtl");
+
+        }, new VelocityTemplateEngine());
 
         //    EDIT
 

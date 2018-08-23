@@ -52,7 +52,7 @@ public class AdvertController {
 
             User user = DBHelper.findById(User.class, user_id);
             String title = req.queryParams("title");
-            String description = req.queryParams("desctription");
+            String description = req.queryParams("description");
             Category category = Category.valueOf(req.queryParams("category"));
             double price = Double.parseDouble(req.queryParams("price"));
 
