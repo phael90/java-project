@@ -7,4 +7,7 @@
         <li>Price: $advert.getPrice()</li>
         <li>User: $advert.getUser().getUsername()</li>
     </ul>
+    <form action="/adverts/$advert.getId()/delete" method="post">
+        <input type="submit" class="button" value="Delete Advert">
+    </form>
 </div>
