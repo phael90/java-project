@@ -1,0 +1,18 @@
+<p class="advertHeader">All Adverts</p>
+<div class="advertContainer">
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Price</th>
+        </tr>
+        #foreach ($advert in $adverts)
+        <tr>
+            <td>$advert.getTitle()</td>
+            <td>$advert.getCategory()</td>
+            <td>$advert.getPrice()</td>
+        </tr>
+        #end
+    </table>
+</div>
+
