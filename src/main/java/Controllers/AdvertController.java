@@ -49,7 +49,6 @@ public class AdvertController {
 
         post("/adverts", (req, res) ->{
             int user_id = Integer.parseInt(req.queryParams("user"));
-
             User user = DBHelper.findById(User.class, user_id);
             String title = req.queryParams("title");
             String description = req.queryParams("description");
@@ -79,9 +78,7 @@ public class AdvertController {
         get("/adverts/:id/edit", (req, res) ->{
             int advertId = Integer.parseInt(req.params(":id"));
             Advert advert = DBHelper.findById(Advert.class, advertId);
-
             Category[] allCategories = Category.values();
-
             HashMap<String, Object> model = new HashMap<>();
             model.put("advert", advert);
             model.put("template", "templates/adverts/edit.vtl");
@@ -89,6 +86,27 @@ public class AdvertController {
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
+
+        //UPDATE
+
+        post("adverts/:id", (req, res) ->{
+
+
+            int advertId = Integer.parseInt(req.params(":id"));
+            Advert advert = DBHelper.findById(Advert.class, advertId);
+            String title = req.queryParams("title");
+            String description = req.queryParams("description");
+            Category category = Category.valueOf(req.queryParams("category"));
+            double price = Double.parseDouble(req.queryParams("price"));
+
+            advert.setTitle(title);
+            advert.setDescription(description);
+            advert.setCategory(category);
+            advert.setPrice(price);
+            DBHelper.update(advert);
+            res.redirect("/adverts");
+            return null;
+        });
 
         //DELETE
 
@@ -99,6 +117,7 @@ public class AdvertController {
             res.redirect("/adverts");
             return null;
         });
+
     }
 
 }
