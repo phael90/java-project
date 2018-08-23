@@ -70,7 +70,7 @@ public class AdvertController {
             Advert advert = DBHelper.findById(Advert.class, advertId);
             HashMap<String, Object> model = new HashMap<>();
             model.put("advert", advert);
-            model.put("template", "templates/adverts/new.vtl");
+            model.put("template", "templates/adverts/show.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
     }

@@ -45,7 +45,6 @@ public class UserController {
         }, new VelocityTemplateEngine());
 
         //    CREATE
-
         post("/users", (req, res) -> {
 
             String username = req.queryParams("username");
@@ -59,10 +58,9 @@ public class UserController {
             res.redirect("/users");
             return null;
 
-        }, new VelocityTemplateEngine());
+        });
 
         //    SHOW
-
         get("/users/:id", (req, res) -> {
 
             int userId = Integer.parseInt(req.params(":id"));
@@ -80,10 +78,52 @@ public class UserController {
         }, new VelocityTemplateEngine());
 
         //    EDIT
+        get("/users/:id/edit", (req, res) -> {
+
+            int userId = Integer.parseInt(req.params(":id"));
+            User editingUser = DBHelper.findById(User.class, userId);
+
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("editingUser", editingUser);
+            model.put("template", "templates/users/edit.vtl");
+
+            return new ModelAndView(model, "templates/layout.vtl");
+
+        }, new VelocityTemplateEngine());
 
         //    UPDATE
+        post("/users/:id", (req, res) -> {
+
+            String username = req.queryParams("username");
+            String firstName = req.queryParams("firstName");
+            String lastName = req.queryParams("lastName");
+            String eMail = req.queryParams("eMail");
+
+            int userId = Integer.parseInt(req.params(":id"));
+            User editingUser = DBHelper.findById(User.class, userId);
+
+            editingUser.setUsername(username);
+            editingUser.setFirstName(firstName);
+            editingUser.setLastName(lastName);
+            editingUser.seteMail(eMail);
+
+            DBHelper.update(editingUser);
+
+            res.redirect("/users/" + userId);
+            return null;
+        });
 
         //    DELETE
+        post("/users/:id/delete", (req, res) -> {
+
+            int userId = Integer.parseInt(req.params(":id"));
+            User deletingUser = DBHelper.findById(User.class, userId);
+
+            DBHelper.delete(deletingUser);
+
+            res.redirect("/users");
+            return null;
+        });
     }
 
 
