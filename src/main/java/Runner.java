@@ -1,7 +1,10 @@
 import db.DBHelper;
+import db.DBUser;
 import models.Advert;
 import models.Category;
 import models.User;
+
+import java.util.List;
 
 public class Runner {
 
@@ -20,6 +23,18 @@ public class Runner {
         DBHelper.save(advert1);
         DBHelper.save(advert2);
         DBHelper.save(advert3);
+
+        List<Advert> user1Adverts = DBUser.getAllAdverts(user1);
+
+        User foundUser = DBHelper.findById(User.class, 1);
+        foundUser.setUsername("digory");
+        DBHelper.update(foundUser);
+
+        DBHelper.delete(foundUser);
+
+//        Advert foundAdvert = DBHelper.findById(Advert.class, 1);
+//        DBHelper.delete(foundAdvert);
+
 
     }
     
