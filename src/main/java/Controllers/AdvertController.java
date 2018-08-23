@@ -20,7 +20,7 @@ public class AdvertController {
 
     public static void setUpRoutes() {
 
-        //TODO: INDEX
+        //INDEX
         get("/adverts", (req, res) ->{
             List<Advert> allAdverts = DBHelper.getAll(Advert.class);
             HashMap<String, Object> model = new HashMap<>();
@@ -30,7 +30,7 @@ public class AdvertController {
         }, new VelocityTemplateEngine());
 
 
-        //TODO: NEW
+        //NEW
 
         get("/adverts/new", (req, res) -> {
             List<User> allUsers = DBHelper.getAll(User.class);
@@ -89,6 +89,16 @@ public class AdvertController {
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
+
+        //DELETE
+
+        post("adverts/:id/delete", (req, res) ->{
+            int advertId = Integer.parseInt(req.params(":id"));
+            Advert advert = DBHelper.findById(Advert.class, advertId);
+            DBHelper.delete(advert);
+            res.redirect("/adverts");
+            return null;
+        });
     }
 
 }
