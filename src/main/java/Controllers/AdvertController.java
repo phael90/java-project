@@ -11,7 +11,6 @@ import java.util.List;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
-import static spark.Spark.redirect;
 
 public class AdvertController {
 
@@ -63,6 +62,17 @@ public class AdvertController {
             return null;
         });
 
+
+        //SHOW
+
+        get("/adverts/:id", (req, res) ->{
+            int advertId = Integer.parseInt(req.params(":id"));
+            Advert advert = DBHelper.findById(Advert.class, advertId);
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("advert", advert);
+            model.put("template", "templates/adverts/new.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
     }
 
 }
