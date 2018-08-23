@@ -1,11 +1,16 @@
 package models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "adverts")
 public class Advert {
     private int id;
     private String title;
     private String description;
     private Category category;
     private double price;
+    private User user;
 
     public Advert(String title, String description, Category category, double price){
         this.title = title;
@@ -16,6 +21,9 @@ public class Advert {
 
     public Advert(){}
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     public int getId() {
         return id;
     }
@@ -24,6 +32,7 @@ public class Advert {
         this.id = id;
     }
 
+    @Column(name = "title")
     public String getTitle() {
         return title;
     }
@@ -32,6 +41,7 @@ public class Advert {
         this.title = title;
     }
 
+    @Column(name  = "description")
     public String getDescription() {
         return description;
     }
@@ -40,6 +50,8 @@ public class Advert {
         this.description = description;
     }
 
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "category")
     public Category getCategory() {
         return category;
     }
@@ -48,11 +60,22 @@ public class Advert {
         this.category = category;
     }
 
+    @Column(name  = "price")
     public double getPrice() {
         return price;
     }
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
