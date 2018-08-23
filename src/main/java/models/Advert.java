@@ -12,11 +12,12 @@ public class Advert {
     private double price;
     private User user;
 
-    public Advert(String title, String description, Category category, double price){
+    public Advert(String title, String description, Category category, double price, User user){
         this.title = title;
         this.description = description;
         this.category = category;
         this.price = price;
+        this.user = user;
     }
 
     public Advert(){}
