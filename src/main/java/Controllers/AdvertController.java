@@ -73,6 +73,17 @@ public class AdvertController {
             model.put("template", "templates/adverts/new.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
+
+        //EDIT
+
+        get("/adverts/:id/edit", (req, res) ->{
+            int advertId = Integer.parseInt(req.params(":id"));
+            Advert advert = DBHelper.findById(Advert.class, advertId);
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("advert", advert);
+            model.put("template", "templates/adverts/edit.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
     }
 
 }
