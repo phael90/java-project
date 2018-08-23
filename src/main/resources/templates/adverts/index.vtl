@@ -6,10 +6,10 @@
             <th>Category</th>
             <th>Price</th>
         </tr>
-        #foreach ($advert in $adverts)
+        #foreach ($advert in $allAdverts)
         <tr>
             <td>$advert.getTitle()</td>
-            <td>$advert.getCategory()</td>
+            <td>$advert.getCategory().getNiceName()</td>
             <td>$advert.getPrice()</td>
         </tr>
         #end
