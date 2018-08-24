@@ -70,7 +70,7 @@ public class DBAdvert {
         try{
             Criteria cr = session.createCriteria(Advert.class);
             cr.add(Restrictions.eq("archived", false));
-            cr.add(Restrictions.ilike("title || description", searchEntry, MatchMode.ANYWHERE));
+            cr.add(Restrictions.ilike("title", searchEntry, MatchMode.ANYWHERE));
             results = cr.list();
         }catch(HibernateException e){
             e.printStackTrace();
