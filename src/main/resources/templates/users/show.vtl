@@ -24,6 +24,11 @@
                 <td>$advert.getTitle()</td>
                 <td>$advert.getCategory().getNiceName()</td>
                 <td>$advert.getPrice()</td>
+                <td>
+                    <form action="/adverts/$advert.getId()/delete" method="post">
+                        <input type="submit" class="button" value="Delete">
+                    </form>
+                </td>
             </tr>
         #end
 
