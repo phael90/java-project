@@ -29,7 +29,6 @@ public class AdvertController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-
         //NEW
 
         get("/adverts/new", (req, res) -> {

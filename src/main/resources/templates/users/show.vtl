@@ -1,33 +1,41 @@
-<p>$user.getUsername()</p>
+#if ($user != $null)
 
-<ul>
-    <li>Username: $user.getUsername()</li>
-    <li>First Name: $user.getFirstName()</li>
-    <li>Last Name: $user.getLastName()</li>
-    <li>e-Mail: $user.geteMail()</li>
-</ul>
+    <p>$user.getUsername()</p>
 
-<a class="button" href="/users/$user.getId()/edit">Edit Details</a>
+    <ul>
+        <li>Username: $user.getUsername()</li>
+        <li>First Name: $user.getFirstName()</li>
+        <li>Last Name: $user.getLastName()</li>
+        <li>e-Mail: $user.geteMail()</li>
+    </ul>
 
-<table>
+    <a class="button" href="/users/$user.getId()/edit">Edit Details</a>
 
-    <tr>
-        <th>Title</th>
-        <th>Category</th>
-        <th>Price</th>
-    </tr>
+    <table>
 
-    #foreach ($advert in $userAdverts)
         <tr>
-            <td>$advert.getTitle()</td>
-            <td>$advert.getCategory().getNiceName()</td>
-            <td>$advert.getPrice()</td>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Price</th>
         </tr>
-    #end
 
-</table>
+        #foreach ($advert in $userAdverts)
+            <tr>
+                <td>$advert.getTitle()</td>
+                <td>$advert.getCategory().getNiceName()</td>
+                <td>$advert.getPrice()</td>
+            </tr>
+        #end
 
-<form action="/users/$user.getId()/delete" method="post">
-    <input type="submit" class="button" value="Delete Account">
-</form>
+    </table>
+
+    <form action="/users/$user.getId()/delete" method="post">
+        <input type="submit" class="button" value="Delete Account">
+    </form>
+
+#else
+
+    <p class="doesNotExist">This User does not exist!</p>
+
+#end
 
