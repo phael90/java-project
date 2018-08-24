@@ -6,7 +6,7 @@
         <li>Description: $advert.getDescription()</li>
         <li>Category: $advert.getCategory().getNiceName()</li>
         <li>Price: $advert.getPrice()</li>
-        <li>User: $advert.getUser().getUsername()</li>
+        <li><a href="/users/$advert.getUser().getId()">User: $advert.getUser().getUsername()</a></li>
     </ul>
 
     <form action="/adverts/$advert.getId()/delete" method="post">
