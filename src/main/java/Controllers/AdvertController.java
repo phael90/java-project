@@ -7,6 +7,8 @@ import models.Category;
 import models.User;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
+
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.HashMap;
 import java.util.List;
 
@@ -143,6 +145,35 @@ public class AdvertController {
             return null;
         });
 
+//        DELETE ON USER PAGE
+
+        post("adverts/:id/delete/by_user/:userid", (req, res) ->{
+
+            int advertId = Integer.parseInt(req.params(":id"));
+            Advert advert = DBHelper.findById(Advert.class, advertId);
+
+            DBHelper.delete(advert);
+
+            int userId = Integer.parseInt(req.params("userid"));
+
+            res.redirect("/users/" + userId);
+            return null;
+        });
+
+//        ARCHIVE ON USER PAGE
+
+        post("adverts/:id/archive/by_user/:userid", (req, res) ->{
+
+            int advertId = Integer.parseInt(req.params(":id"));
+            Advert advert = DBHelper.findById(Advert.class, advertId);
+
+            DBAdvert.archiveAdvert(advert);
+
+            int userId = Integer.parseInt(req.params("userid"));
+
+            res.redirect("/users/" + userId);
+            return null;
+        });
     }
 
 }
