@@ -1,5 +1,13 @@
 <p class="advertHeader">All Adverts</p>
-<div class="advertContainer" >
+
+<div class="categoryButtons">
+
+    #foreach ($category in $allCategories)
+    <a href="/adverts/category/$category">$category.getNiceName()</a>
+#end
+</div>
+
+<div class="advertContainer">
     <table>
         <tr>
             <th>Title</th>
