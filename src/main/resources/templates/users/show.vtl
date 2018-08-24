@@ -11,23 +11,53 @@
 
     <a class="button" href="/users/$user.getId()/edit">Edit Details</a>
 
-    <table>
+    <div class="activeAdverts">
 
-        <tr>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Price</th>
-        </tr>
+        <p>Current Adverts</p>
 
-        #foreach ($advert in $userAdverts)
+        <table>
+
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Price</th>
+            </tr>
+
+            #foreach ($advert in $userActiveAdverts)
+                <tr>
+                    <td>$advert.getTitle()</td>
+                    <td>$advert.getCategory().getNiceName()</td>
+                    <td>$advert.getPrice()</td>
+                </tr>
+            #end
+
+        </table>
+
+    </div>
+
+    <div class="archivedAdverts">
+
+        <p>Old Adverts</p>
+
+        <table>
+
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Price</th>
+            </tr>
+
+            #foreach ($advert in $userArchivedAdverts)
             <tr>
                 <td>$advert.getTitle()</td>
                 <td>$advert.getCategory().getNiceName()</td>
                 <td>$advert.getPrice()</td>
             </tr>
-        #end
+            #end
 
-    </table>
+        </table>
+
+    </div>
 
     <form action="/users/$user.getId()/delete" method="post">
         <input type="submit" class="button" value="Delete Account">
