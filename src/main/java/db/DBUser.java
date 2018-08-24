@@ -28,4 +28,38 @@ public class DBUser {
         return results;
     }
 
+    public static List<Advert> getAllArchivedAdverts(User user){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Advert> results = null;
+        try {
+            Criteria cr = session.createCriteria(Advert.class);
+            cr.add(Restrictions.eq("user", user));
+            cr.add(Restrictions.eq("archived", true));
+            results = cr.list();
+        } catch(HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return results;
+    }
+
+    public static List<Advert> getAllActiveAdverts(User user){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Advert> results = null;
+        try {
+            Criteria cr = session.createCriteria(Advert.class);
+            cr.add(Restrictions.eq("user", user));
+            cr.add(Restrictions.eq("archived", false));
+            results = cr.list();
+        } catch(HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return results;
+    }
+
+
+
 }

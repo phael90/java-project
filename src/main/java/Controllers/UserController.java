@@ -66,11 +66,13 @@ public class UserController {
             int userId = Integer.parseInt(req.params(":id"));
             User user = DBHelper.findById(User.class, userId);
 
-            List<Advert> userAdverts = DBUser.getAllAdverts(user);
+            List<Advert> userActiveAdverts = DBUser.getAllActiveAdverts(user);
+            List<Advert> userArchivedAdverts = DBUser.getAllArchivedAdverts(user);
 
             HashMap<String, Object> model = new HashMap<>();
             model.put("user", user);
-            model.put("userAdverts", userAdverts);
+            model.put("userActiveAdverts", userActiveAdverts);
+            model.put("userArchivedAdverts", userArchivedAdverts);
             model.put("template", "templates/users/show.vtl");
 
             return new ModelAndView(model, "templates/layout.vtl");

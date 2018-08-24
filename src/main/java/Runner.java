@@ -1,6 +1,5 @@
 import db.DBAdvert;
 import db.DBHelper;
-import db.DBUser;
 import models.Advert;
 import models.Category;
 import models.User;
@@ -10,6 +9,9 @@ import java.util.List;
 public class Runner {
 
     public static void main(String[] args) {
+
+//        DBHelper.deleteAll(User.class);
+//        DBHelper.deleteAll(Advert.class);
 
         User user1 = new User("phael90", "Raphael", "Ugha", "raph@outlook.com");
         User user2 = new User("robbieisthebest", "Robbie", "Dumbrell", "robbie@outlook.com");
@@ -39,7 +41,13 @@ public class Runner {
 //        List<User> allUsers = DBHelper.getAll(User.class);
 //        List<Advert> allAdverts = DBHelper.getAll(Advert.class);
 
-        List<Advert> advertsVehicleByCategory = DBAdvert.getAllAdvertsbyCategory(Category.VEHICLES);
+        List<Advert> advertsVehicleByCategory = DBAdvert.getAllAdvertsByCategory(Category.VEHICLES);
+
+        Advert foundAdvert = DBHelper.findById(Advert.class, 9);
+        DBAdvert.archiveAdvert(foundAdvert);
+
+        List<Advert> allArchivedAdverts = DBAdvert.getAllArchivedAdverts();
+        List<Advert> allActiveAdverts = DBAdvert.getAllActiveAdverts();
 
     }
     

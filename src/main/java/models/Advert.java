@@ -11,6 +11,7 @@ public class Advert {
     private Category category;
     private double price;
     private User user;
+    private Boolean archived;
 
     public Advert(String title, String description, Category category, double price, User user){
         this.title = title;
@@ -18,6 +19,7 @@ public class Advert {
         this.category = category;
         this.price = price;
         this.user = user;
+        this.archived = false;
     }
 
     public Advert(){}
@@ -79,4 +81,18 @@ public class Advert {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Column(name = "archived")
+    public Boolean getArchived() {
+        return archived;
+    }
+
+    public void setArchived(Boolean archived) {
+        this.archived = archived;
+    }
+
+    public void archive(){
+        this.archived = true;
+    }
+
 }

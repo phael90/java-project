@@ -38,12 +38,12 @@ public class AdvertController {
 
 //        INDEX BY CATEGORY
 
-        get("adverts/category/:category", (req, res) -> {
+        get("/adverts/category/:category", (req, res) -> {
 
             String categoryString = req.params(":category");
             Category category = Category.valueOf(categoryString);
 
-            List<Advert> allCategoryAdverts = DBAdvert.getAllAdvertsbyCategory(category);
+            List<Advert> allCategoryAdverts = DBAdvert.getAllAdvertsByCategory(category);
 
             HashMap<String, Object> model = new HashMap<>();
             model.put("allCategoryAdverts", allCategoryAdverts);
