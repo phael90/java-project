@@ -24,12 +24,15 @@ public class AdvertController {
         //INDEX
         get("/adverts", (req, res) ->{
 
-
-
+            Category[] allCategories = Category.values();
             List<Advert> allAdverts = DBHelper.getAll(Advert.class);
+
             HashMap<String, Object> model = new HashMap<>();
             model.put("allAdverts", allAdverts);
+            model.put("allCategories", allCategories);
             model.put("template", "templates/adverts/index.vtl");
+
+
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
