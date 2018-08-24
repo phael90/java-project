@@ -1,3 +1,4 @@
+import db.DBAdvert;
 import db.DBHelper;
 import db.DBUser;
 import models.Advert;
@@ -24,20 +25,21 @@ public class Runner {
         DBHelper.save(advert2);
         DBHelper.save(advert3);
 
-        List<Advert> user1Adverts = DBUser.getAllAdverts(user1);
-
-        User foundUser = DBHelper.findById(User.class, 1);
-        foundUser.setUsername("digory");
-        DBHelper.update(foundUser);
+//        List<Advert> user1Adverts = DBUser.getAllAdverts(user1);
+//
+//        User foundUser = DBHelper.findById(User.class, 1);
+//        foundUser.setUsername("digory");
+//        DBHelper.update(foundUser);
 
 //        DBHelper.delete(foundUser);
 
 //        Advert foundAdvert = DBHelper.findById(Advert.class, 1);
 //        DBHelper.delete(foundAdvert);
 
-        List<User> allUsers = DBHelper.getAll(User.class);
-        List<Advert> allAdverts = DBHelper.getAll(Advert.class);
+//        List<User> allUsers = DBHelper.getAll(User.class);
+//        List<Advert> allAdverts = DBHelper.getAll(Advert.class);
 
+        List<Advert> advertsVehicleByCategory = DBAdvert.getAllAdvertsbyCategory(Category.VEHICLES);
 
     }
     
