@@ -7,6 +7,8 @@
     <li>e-Mail: $user.geteMail()</li>
 </ul>
 
+<a class="button" href="/users/$user.getId()/edit">Edit Details</a>
+
 <table>
 
     <tr>
@@ -28,3 +30,4 @@
 <form action="/users/$user.getId()/delete" method="post">
     <input type="submit" class="button" value="Delete Account">
 </form>
+

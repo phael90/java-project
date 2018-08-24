@@ -11,9 +11,12 @@
         #foreach ($user in $allUsers)
             <tr>
                 <td>$user.getUsername()</td>
+                <td><a href="/users/$user.getId()">View Profile</a></td>
             </tr>
         #end
 
     </table>
 
 </div>
+
+<a class="button" href="/users/new">Create Account</a>
