@@ -10,8 +10,8 @@ public class Runner {
 
     public static void main(String[] args) {
 
-//        DBHelper.deleteAll(User.class);
-//        DBHelper.deleteAll(Advert.class);
+        DBHelper.deleteAll(User.class);
+        DBHelper.deleteAll(Advert.class);
 
         User user1 = new User("phael90", "Raphael", "Ugha", "raph@outlook.com");
         User user2 = new User("robbieisthebest", "Robbie", "Dumbrell", "robbie@outlook.com");
