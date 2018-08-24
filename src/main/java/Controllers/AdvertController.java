@@ -27,7 +27,7 @@ public class AdvertController {
         get("/adverts", (req, res) ->{
 
             Category[] allCategories = Category.values();
-            List<Advert> allAdverts = DBHelper.getAll(Advert.class);
+            List<Advert> allAdverts = DBAdvert.getAllActiveAdverts();
 
             HashMap<String, Object> model = new HashMap<>();
             model.put("allAdverts", allAdverts);
