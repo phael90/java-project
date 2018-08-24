@@ -1,5 +1,7 @@
 package models;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,6 +14,7 @@ public class Advert {
     private double price;
     private User user;
     private Boolean archived;
+    private byte[] image;
 
     public Advert(String title, String description, Category category, double price, User user){
         this.title = title;
@@ -20,6 +23,7 @@ public class Advert {
         this.price = price;
         this.user = user;
         this.archived = false;
+        this.image = null;
     }
 
     public Advert(){}
@@ -89,6 +93,17 @@ public class Advert {
 
     public void setArchived(Boolean archived) {
         this.archived = archived;
+    }
+
+    @Lob
+    @Column(name = "image")
+    @Type(type="org.hibernate.type.BinaryType")
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     public void archive(){

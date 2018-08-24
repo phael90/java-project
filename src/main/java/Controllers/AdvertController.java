@@ -9,6 +9,9 @@ import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.print.DocFlavor;
+import java.io.File;
+import java.nio.file.Files;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -82,12 +85,17 @@ public class AdvertController {
         post("/adverts", (req, res) ->{
             int user_id = Integer.parseInt(req.queryParams("user"));
             User user = DBHelper.findById(User.class, user_id);
+
             String title = req.queryParams("title");
             String description = req.queryParams("description");
             Category category = Category.valueOf(req.queryParams("category"));
             double price = Double.parseDouble(req.queryParams("price"));
 
+            File file = new File(req.queryParams("image"));
+            byte[] image = Files.readAllBytes(file.toPath());
+
             Advert newAdvert = new Advert(title, description, category, price, user);
+            newAdvert.setImage(image);
             DBHelper.save(newAdvert);
             res.redirect("/adverts");
             return null;
