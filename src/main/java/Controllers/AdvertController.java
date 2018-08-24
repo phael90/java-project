@@ -1,5 +1,6 @@
 package Controllers;
 
+import db.DBAdvert;
 import db.DBHelper;
 import models.Advert;
 import models.Category;
@@ -22,12 +23,34 @@ public class AdvertController {
 
         //INDEX
         get("/adverts", (req, res) ->{
+
+
+
             List<Advert> allAdverts = DBHelper.getAll(Advert.class);
             HashMap<String, Object> model = new HashMap<>();
             model.put("allAdverts", allAdverts);
             model.put("template", "templates/adverts/index.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
+
+//        INDEX BY CATEGORY
+
+        get("adverts/category/:category", (req, res) -> {
+
+            String categoryString = req.params(":category");
+            Category category = Category.valueOf(categoryString);
+
+            List<Advert> allCategoryAdverts = DBAdvert.getAllAdvertsbyCategory(category);
+
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("allCategoryAdverts", allCategoryAdverts);
+            model.put("template", "templates/adverts/indexByCategory.vtl");
+
+            return new ModelAndView(model, "templates/layout.vtl");
+
+        }, new VelocityTemplateEngine());
+
+
 
         //NEW
 
