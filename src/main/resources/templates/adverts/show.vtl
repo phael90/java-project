@@ -1,3 +1,4 @@
+#if ($advert != $null)
 <p class="advert">Advert</p>
 <div>
     <ul>
@@ -12,4 +13,11 @@
         <input type="submit" class="button" value="Delete Advert">
     </form>
 
+    <a class="button" href="/adverts/$advert.getId()/edit">Edit Advert</a>
+
 </div>
+#else
+
+<p class="doesNotExist">This advert does not exist!</p>
+
+#end

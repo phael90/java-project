@@ -1,3 +1,4 @@
+#if ($advert != $null)
 <p class="advertForm">Advert Form</p>
 <div>
     <form class="new-advert_form=" action="/adverts" method="post">
@@ -26,6 +27,11 @@
     </form>
 </div>
 
+#else
+
+<p class="doesNotExist">This advert does not exist!</p>
+
+#end
 
 
 <!--<option value="<%=nationality%>" <%= 'selected' if @tenant.nationality == nationality%>><%=nationality%></option>-->

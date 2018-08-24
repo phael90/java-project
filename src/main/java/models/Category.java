@@ -14,10 +14,12 @@ public enum Category {
     private String niceName;
 
     Category(String niceName) {
+
         this.niceName = niceName;
     }
 
     public String getNiceName() {
+
         return niceName;
     }
 }

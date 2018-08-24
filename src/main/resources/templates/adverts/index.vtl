@@ -1,5 +1,5 @@
 <p class="advertHeader">All Adverts</p>
-<div class="advertContainer">
+<div class="advertContainer" >
     <table>
         <tr>
             <th>Title</th>
@@ -8,11 +8,13 @@
         </tr>
         #foreach ($advert in $allAdverts)
         <tr>
-            <td>$advert.getTitle()</td>
+            <td><a href="/adverts/$advert.getId()">
+                $advert.getTitle()</a></td>
             <td>$advert.getCategory().getNiceName()</td>
             <td>$advert.getPrice()</td>
         </tr>
         #end
     </table>
+    <a class="button" href="/adverts/new">Add advert</a>
 </div>
 
