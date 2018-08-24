@@ -174,6 +174,16 @@ public class AdvertController {
             res.redirect("/users/" + userId);
             return null;
         });
+
+//        ARCHIVE ON ADVERT PAGE
+        post("adverts/:id/archive", (req, res) ->{
+            int advertId = Integer.parseInt(req.params(":id"));
+            Advert advert = DBHelper.findById(Advert.class, advertId);
+            DBAdvert.archiveAdvert(advert);
+            res.redirect("/adverts");
+            return null;
+        });
+
     }
 
 }

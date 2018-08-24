@@ -13,6 +13,10 @@
         <input type="submit" class="button" value="Delete Advert">
     </form>
 
+    <form action="/adverts/$advert.getId()/archive" method="post">
+        <input type="submit" class="button" value="Archive">
+    </form>
+
     <a class="button" href="/adverts/$advert.getId()/edit">Edit Advert</a>
 
 </div>
