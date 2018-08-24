@@ -10,8 +10,7 @@
 
         #foreach ($user in $allUsers)
             <tr>
-                <td>$user.getUsername()</td>
-                <td><a href="/users/$user.getId()">View Profile</a></td>
+                <td><a href="/users/$user.getId()">$user.getUsername()</a></td>
             </tr>
         #end
 
