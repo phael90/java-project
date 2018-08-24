@@ -9,6 +9,7 @@ import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -29,9 +30,13 @@ public class AdvertController {
             Category[] allCategories = Category.values();
             List<Advert> allAdverts = DBAdvert.getAllActiveAdverts();
 
+            String searchEntry = req.queryParams("search");
+            List<Advert> searchResults = DBAdvert.getAllSearchedActiveAdverts(searchEntry);
+
             HashMap<String, Object> model = new HashMap<>();
             model.put("allAdverts", allAdverts);
             model.put("allCategories", allCategories);
+            model.put("searchResults", searchResults);
             model.put("template", "templates/adverts/index.vtl");
 
 

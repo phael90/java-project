@@ -5,6 +5,7 @@ import models.Category;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
@@ -61,6 +62,22 @@ public class DBAdvert {
     public static void archiveAdvert(Advert advert){
         advert.archive();
         DBHelper.update(advert);
+    }
+
+    public static List<Advert> getAllSearchedActiveAdverts(String searchEntry){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Advert> results = null;
+        try{
+            Criteria cr = session.createCriteria(Advert.class);
+            cr.add(Restrictions.eq("archived", false));
+            cr.add(Restrictions.ilike("title", searchEntry, MatchMode.ANYWHERE));
+            results = cr.list();
+        }catch(HibernateException e){
+            e.printStackTrace();
+        }finally{
+            session.close();
+        }
+        return results;
     }
 
 

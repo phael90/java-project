@@ -20,12 +20,14 @@ public class Runner {
         DBHelper.save(user2);
 
         Advert advert1 = new Advert("An amazing car", "This is a car that is amazing", Category.VEHICLES, 10000, user1);
+        Advert advert4 = new Advert("A bad car", "This is a car that is amazing", Category.VEHICLES, 10000, user1);
         Advert advert2 = new Advert("An incredible laptop", "This is a laptop that is incredible", Category.ELECTRONICS, 1000, user1);
         Advert advert3 = new Advert("A beautiful cat", "This is a cat that is beautiful", Category.ANIMALS, 200, user2);
 
         DBHelper.save(advert1);
         DBHelper.save(advert2);
         DBHelper.save(advert3);
+        DBHelper.save(advert4);
 
 //        List<Advert> user1Adverts = DBUser.getAllAdverts(user1);
 //
@@ -43,11 +45,13 @@ public class Runner {
 
         List<Advert> advertsVehicleByCategory = DBAdvert.getAllAdvertsByCategory(Category.VEHICLES);
 
-        Advert foundAdvert = DBHelper.findById(Advert.class, 9);
-        DBAdvert.archiveAdvert(foundAdvert);
+//        Advert foundAdvert = DBHelper.findById(Advert.class, 9);
+//        DBAdvert.archiveAdvert(foundAdvert);
 
         List<Advert> allArchivedAdverts = DBAdvert.getAllArchivedAdverts();
         List<Advert> allActiveAdverts = DBAdvert.getAllActiveAdverts();
+
+        List<Advert> searchedAdverts = DBAdvert.getAllSearchedActiveAdverts("car");
 
     }
     
