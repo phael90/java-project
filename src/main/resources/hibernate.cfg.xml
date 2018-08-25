@@ -16,5 +16,6 @@
         <mapping class = "models.User"/>
         <mapping class= "models.Advert"/>
         <mapping class= "models.Comment"/>
+        <mapping class= "models.Rating"/>
     </session-factory>
 </hibernate-configuration>

@@ -14,6 +14,7 @@ public class MainController {
         AdvertController advertController = new AdvertController();
         UserController userController = new UserController();
         CommentController commentController = new CommentController();
+        RatingsController ratingsController = new RatingsController();
 
 //        HOME PAGE
         get("/", (req, res) -> {

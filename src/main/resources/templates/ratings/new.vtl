@@ -1,0 +1,26 @@
+<form action="/users/$ratee.getId()/ratings" method="post">
+
+    <label for="rater">Select Your Username:</label>
+    <select name="rater" id="rater" required="true">
+        #foreach ($user in $allUsers)
+        <option value="$user.getId()">
+            $user.getUsername()
+        </option>
+        #end
+    </select>
+
+    <label for="ratingValue">Overall rating</label>
+    <select name="ratingValue" id="ratingValue" required="true">
+        #foreach ($ratingValue in $allRatingValues)
+        <option value="$ratingValue">
+            $ratingValue.getRatingNumber()
+        </option>
+        #end
+    </select>
+
+    <label for="message">Write your message</label>
+    <input type="text" name="message" class="commentBox" id="message" maxlength="300">
+
+    <input type="submit" class="button" value="Submit Rating">
+</form>
+

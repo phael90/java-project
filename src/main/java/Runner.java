@@ -2,10 +2,7 @@ import db.DBAdvert;
 import db.DBComment;
 import db.DBHelper;
 import db.DBUser;
-import models.Advert;
-import models.Category;
-import models.Comment;
-import models.User;
+import models.*;
 
 import java.util.List;
 
@@ -72,6 +69,9 @@ public class Runner {
         List<Comment> advert1Comments = DBComment.getAllCommentsForAdvert(advert1);
 
         List<User> searchUsers = DBUser.getAllSearchedActiveUsers("robbie");
+
+        Rating rating1 = new Rating(user1, user2, RatingValue.FOUR, "All good");
+        DBHelper.save(rating1);
 
     }
     

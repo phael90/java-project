@@ -18,6 +18,8 @@ public class User {
     private String eMail;
     private List<Advert> adverts;
     private List<Comment> commentsMade;
+    private List<Rating> ratingsMade;
+    private List<Rating> ratingsReceived;
 
     public User() {
     }
@@ -29,6 +31,8 @@ public class User {
         this.eMail = eMail;
         this.adverts = new ArrayList<Advert>();
         this.commentsMade = new ArrayList<>();
+        this.ratingsMade = new ArrayList<>();
+        this.ratingsReceived = new ArrayList<>();
     }
 
     @Id
@@ -95,5 +99,23 @@ public class User {
 
     public void setCommentsMade(List<Comment> commentsMade) {
         this.commentsMade = commentsMade;
+    }
+
+    @OneToMany(mappedBy = "rater")
+    public List<Rating> getRatingsMade() {
+        return ratingsMade;
+    }
+
+    public void setRatingsMade(List<Rating> ratingsMade) {
+        this.ratingsMade = ratingsMade;
+    }
+
+    @OneToMany(mappedBy = "ratee")
+    public List<Rating> getRatingsReceived() {
+        return ratingsReceived;
+    }
+
+    public void setRatingsReceived(List<Rating> ratingsReceived) {
+        this.ratingsReceived = ratingsReceived;
     }
 }
