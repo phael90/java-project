@@ -1,4 +1,5 @@
 import db.DBAdvert;
+import db.DBComment;
 import db.DBHelper;
 import models.Advert;
 import models.Category;
@@ -65,6 +66,9 @@ public class Runner {
         DBHelper.save(comment3);
         DBHelper.save(comment4);
         DBHelper.save(comment5);
+
+        List<Comment> user1Comments = DBComment.getAllCommentsByUser(user1);
+        List<Comment> advert1Comments = DBComment.getAllCommentsForAdvert(advert1);
 
     }
     

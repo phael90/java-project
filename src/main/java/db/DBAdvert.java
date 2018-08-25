@@ -2,6 +2,7 @@ package db;
 
 import models.Advert;
 import models.Category;
+import models.Comment;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -79,7 +80,5 @@ public class DBAdvert {
         }
         return results;
     }
-
-
 
 }
