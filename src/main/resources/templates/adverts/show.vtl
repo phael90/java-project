@@ -1,27 +1,42 @@
 #if ($advert != $null)
-<p class="advert">Advert</p>
-<div>
-    <ul>
-        <li>Title: $advert.getTitle()</li>
-        <li>Description: $advert.getDescription()</li>
-        <li>Category: $advert.getCategory().getNiceName()</li>
-        <li>Price: $advert.getPrice()</li>
-        <li><a href="/users/$advert.getUser().getId()">User: $advert.getUser().getUsername()</a></li>
-    </ul>
 
-    <form action="/adverts/$advert.getId()/delete" method="post">
-        <input type="submit" class="button" value="Delete Advert">
-    </form>
+    <p class="advert">Advert</p>
 
-    <form action="/adverts/$advert.getId()/archive" method="post">
-        <input type="submit" class="button" value="Archive">
-    </form>
+    <div>
+        <ul>
+            <li>Title: $advert.getTitle()</li>
+            <li>Description: $advert.getDescription()</li>
+            <li>Category: $advert.getCategory().getNiceName()</li>
+            <li>Price: $advert.getPrice()</li>
+            <li><a href="/users/$advert.getUser().getId()">User: $advert.getUser().getUsername()</a></li>
+        </ul>
 
-    <a class="button" href="/adverts/$advert.getId()/edit">Edit Advert</a>
+        <form action="/adverts/$advert.getId()/delete" method="post">
+            <input type="submit" class="button" value="Delete Advert">
+        </form>
 
-</div>
+        <form action="/adverts/$advert.getId()/archive" method="post">
+            <input type="submit" class="button" value="Archive">
+        </form>
+
+        <a class="button" href="/adverts/$advert.getId()/edit">Edit Advert</a>
+
+        <p>Comments</p>
+
+        <a class="button" href="/adverts/$advert.getId()/comments/new">Add Comment</a>
+
+        #foreach ($comment in $advertComments)
+            <ul>
+                <li><a href="/users/$comment.getUser().getId()">$comment.getUser().getUsername()</a></li>
+                <li>$comment.getMessage()</li>
+            </ul>
+        #end
+
+
+    </div>
+
 #else
 
-<p class="doesNotExist">This advert does not exist!</p>
+    <p class="doesNotExist">This advert does not exist!</p>
 
 #end

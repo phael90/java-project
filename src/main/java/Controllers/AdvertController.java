@@ -1,15 +1,15 @@
 package Controllers;
 
 import db.DBAdvert;
+import db.DBComment;
 import db.DBHelper;
 import models.Advert;
 import models.Category;
+import models.Comment;
 import models.User;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -99,9 +99,14 @@ public class AdvertController {
         get("/adverts/:id", (req, res) ->{
             int advertId = Integer.parseInt(req.params(":id"));
             Advert advert = DBHelper.findById(Advert.class, advertId);
+
+            List<Comment> advertComments = DBComment.getAllCommentsForAdvert(advert);
+
             HashMap<String, Object> model = new HashMap<>();
             model.put("advert", advert);
+            model.put("advertComments", advertComments);
             model.put("template", "templates/adverts/show.vtl");
+
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 

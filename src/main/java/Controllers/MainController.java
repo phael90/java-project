@@ -13,6 +13,7 @@ public class MainController {
 
         AdvertController advertController = new AdvertController();
         UserController userController = new UserController();
+        CommentController commentController = new CommentController();
 
 //        HOME PAGE
         get("/", (req, res) -> {

@@ -1,0 +1,20 @@
+<p>New Comment</p>
+
+<form action="/adverts/$commentingAdvert.getId()/comments" method="post">
+
+    <label for="user">Select User:</label>
+    <select name="user" id="user" required="true">
+        #foreach ($user in $allUsers)
+        <option value="$user.getId()">
+            $user.getUsername()
+        </option>
+        #end
+    </select>
+
+    <label for="message">Enter Comment:</label>
+    <input type="text" name="message" class="commentBox" id="message" required="true" maxlength="300">
+
+    <input type="submit" class="button" value="Add Comment">
+
+
+</form>
