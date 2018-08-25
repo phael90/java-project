@@ -1,6 +1,8 @@
 package models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "adverts")
@@ -12,6 +14,7 @@ public class Advert {
     private double price;
     private User user;
     private Boolean archived;
+    private List<Comment> comments;
 
     public Advert(String title, String description, Category category, double price, User user){
         this.title = title;
@@ -20,6 +23,7 @@ public class Advert {
         this.price = price;
         this.user = user;
         this.archived = false;
+        this.comments = new ArrayList<>();
     }
 
     public Advert(){}
@@ -89,6 +93,15 @@ public class Advert {
 
     public void setArchived(Boolean archived) {
         this.archived = archived;
+    }
+
+    @OneToMany(mappedBy = "advert")
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     public void archive(){

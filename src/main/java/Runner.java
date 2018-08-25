@@ -2,6 +2,7 @@ import db.DBAdvert;
 import db.DBHelper;
 import models.Advert;
 import models.Category;
+import models.Comment;
 import models.User;
 
 import java.util.List;
@@ -43,15 +44,27 @@ public class Runner {
 //        List<User> allUsers = DBHelper.getAll(User.class);
 //        List<Advert> allAdverts = DBHelper.getAll(Advert.class);
 
-        List<Advert> advertsVehicleByCategory = DBAdvert.getAllAdvertsByCategory(Category.VEHICLES);
+//        List<Advert> advertsVehicleByCategory = DBAdvert.getAllAdvertsByCategory(Category.VEHICLES);
 
 //        Advert foundAdvert = DBHelper.findById(Advert.class, 9);
 //        DBAdvert.archiveAdvert(foundAdvert);
 
-        List<Advert> allArchivedAdverts = DBAdvert.getAllArchivedAdverts();
-        List<Advert> allActiveAdverts = DBAdvert.getAllActiveAdverts();
+//        List<Advert> allArchivedAdverts = DBAdvert.getAllArchivedAdverts();
+//        List<Advert> allActiveAdverts = DBAdvert.getAllActiveAdverts();
+//
+//        List<Advert> searchedAdverts = DBAdvert.getAllSearchedActiveAdverts("car");
 
-        List<Advert> searchedAdverts = DBAdvert.getAllSearchedActiveAdverts("car");
+        Comment comment1 = new Comment(user1, advert1, "Hello, I really like the look of this!");
+        Comment comment2 = new Comment(user1, advert2, "Hello, I really like the look of this!");
+        Comment comment3 = new Comment(user1, advert3, "Hello, I really like the look of this!");
+        Comment comment4 = new Comment(user2, advert1, "Hello, I really like the look of this!");
+        Comment comment5 = new Comment(user2, advert4, "Hello, I really like the look of this!");
+
+        DBHelper.save(comment1);
+        DBHelper.save(comment2);
+        DBHelper.save(comment3);
+        DBHelper.save(comment4);
+        DBHelper.save(comment5);
 
     }
     

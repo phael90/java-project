@@ -15,5 +15,6 @@
         <property name="show_sql">true</property>
         <mapping class = "models.User"/>
         <mapping class= "models.Advert"/>
+        <mapping class= "models.Comment"/>
     </session-factory>
 </hibernate-configuration>

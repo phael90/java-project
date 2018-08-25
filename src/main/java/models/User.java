@@ -17,6 +17,7 @@ public class User {
     private String lastName;
     private String eMail;
     private List<Advert> adverts;
+    private List<Comment> commentsMade;
 
     public User() {
     }
@@ -27,6 +28,7 @@ public class User {
         this.lastName = lastName;
         this.eMail = eMail;
         this.adverts = new ArrayList<Advert>();
+        this.commentsMade = new ArrayList<>();
     }
 
     @Id
@@ -76,7 +78,6 @@ public class User {
         this.eMail = eMail;
     }
 
-
     @OneToMany(mappedBy = "user")
     @OnDelete(action = OnDeleteAction.CASCADE)
     public List<Advert> getAdverts() {
@@ -85,5 +86,14 @@ public class User {
 
     public void setAdverts(List<Advert> adverts) {
         this.adverts = adverts;
+    }
+
+    @OneToMany(mappedBy = "user")
+    public List<Comment> getCommentsMade() {
+        return commentsMade;
+    }
+
+    public void setCommentsMade(List<Comment> commentsMade) {
+        this.commentsMade = commentsMade;
     }
 }
