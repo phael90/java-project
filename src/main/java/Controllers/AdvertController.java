@@ -171,11 +171,8 @@ public class AdvertController {
 
             int advertId = Integer.parseInt(req.params(":id"));
             Advert advert = DBHelper.findById(Advert.class, advertId);
-
             DBAdvert.archiveAdvert(advert);
-
             int userId = Integer.parseInt(req.params("userid"));
-
             res.redirect("/users/" + userId);
             return null;
         });

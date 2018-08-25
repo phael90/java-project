@@ -1,5 +1,6 @@
 import db.DBAdvert;
 import db.DBHelper;
+import db.DBUser;
 import models.Advert;
 import models.Category;
 import models.User;
@@ -52,6 +53,8 @@ public class Runner {
         List<Advert> allActiveAdverts = DBAdvert.getAllActiveAdverts();
 
         List<Advert> searchedAdverts = DBAdvert.getAllSearchedActiveAdverts("car");
+
+        List<User> searchUsers = DBUser.getAllSearchedActiveUsers("robbie");
 
     }
     
