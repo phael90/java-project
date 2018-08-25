@@ -2,18 +2,34 @@
 
 <div class="usersContainer">
 
+
+    <form action="/users" method="get">
+        <input type="search" name="search" placeholder="Search Users...">
+    </form>
+
     <table>
 
         <tr>
             <th>Username</th>
         </tr>
 
-        #foreach ($user in $allUsers)
-            <tr>
-                <td><a href="/users/$user.getId()">$user.getUsername()</a></td>
-            </tr>
-        #end
+        #if ($searchResults.size() > 0)
 
+            #foreach ($user in $searchResults)
+                <tr>
+                    <td><a href="/users/$user.getId()">$user.getUsername()</a></td>
+                </tr>
+            #end
+
+        #else
+
+            #foreach ($user in $allUsers)
+                <tr>
+                    <td><a href="/users/$user.getId()">$user.getUsername()</a></td>
+                </tr>
+             #end
+
+        #end
     </table>
 
 </div>

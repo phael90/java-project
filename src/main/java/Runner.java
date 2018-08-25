@@ -1,6 +1,7 @@
 import db.DBAdvert;
 import db.DBComment;
 import db.DBHelper;
+import db.DBUser;
 import models.Advert;
 import models.Category;
 import models.Comment;
@@ -69,6 +70,8 @@ public class Runner {
 
         List<Comment> user1Comments = DBComment.getAllCommentsByUser(user1);
         List<Comment> advert1Comments = DBComment.getAllCommentsForAdvert(advert1);
+
+        List<User> searchUsers = DBUser.getAllSearchedActiveUsers("robbie");
 
     }
     

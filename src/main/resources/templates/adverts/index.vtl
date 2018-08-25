@@ -24,12 +24,12 @@
         #if ($searchResults.size() > 0)
 
             #foreach ($advert in $searchResults)
-            <tr>
-                <td><a href="/adverts/$advert.getId()">
-                    $advert.getTitle()</a></td>
-                <td>$advert.getCategory().getNiceName()</td>
-                <td>$advert.getPrice()</td>
-            </tr>
+                <tr>
+                    <td><a href="/adverts/$advert.getId()">
+                        $advert.getTitle()</a></td>
+                    <td>$advert.getCategory().getNiceName()</td>
+                    <td>$advert.getPrice()</td>
+                </tr>
             #end
 
         #else

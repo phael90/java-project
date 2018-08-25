@@ -24,10 +24,15 @@ public class UserController {
         //    INDEX
         get("/users", (req, res) -> {
 
+
             List<User> allUsers = DBHelper.getAll(User.class);
+
+            String searchEntry = req.queryParams("search");
+            List<User> searchResults = DBUser.getAllSearchedActiveUsers(searchEntry);
 
             HashMap<String, Object> model = new HashMap<>();
             model.put("allUsers", allUsers);
+            model.put("searchResults", searchResults);
             model.put("template", "templates/users/index.vtl");
 
             return new ModelAndView(model, "templates/layout.vtl");
