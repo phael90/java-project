@@ -49,7 +49,7 @@ public class RatingsController {
             int rateeId = Integer.parseInt(req.params(":id"));
             User ratee = DBHelper.findById(User.class, rateeId);
 
-            RatingValue ratingValue = RatingValue.valueOf("ratingValue");
+            RatingValue ratingValue = RatingValue.valueOf(req.queryParams("ratingValue"));
 
             String message = req.queryParams("message");
 
