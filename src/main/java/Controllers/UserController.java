@@ -74,10 +74,13 @@ public class UserController {
             List<Advert> userActiveAdverts = DBUser.getAllActiveAdverts(user);
             List<Advert> userArchivedAdverts = DBUser.getAllArchivedAdverts(user);
 
+            Double averageRating = user.calculateAverageRatingReceived();
+
             HashMap<String, Object> model = new HashMap<>();
             model.put("user", user);
             model.put("userActiveAdverts", userActiveAdverts);
             model.put("userArchivedAdverts", userArchivedAdverts);
+            model.put("averageRating", averageRating);
             model.put("template", "templates/users/show.vtl");
 
             return new ModelAndView(model, "templates/layout.vtl");

@@ -10,8 +10,11 @@ public class Runner {
 
     public static void main(String[] args) {
 
+        DBHelper.deleteAll(Comment.class);
+        DBHelper.deleteAll(Rating.class);
         DBHelper.deleteAll(User.class);
         DBHelper.deleteAll(Advert.class);
+
 
         User user1 = new User("phael90", "Raphael", "Ugha", "raph@outlook.com");
         User user2 = new User("robbieisthebest", "Robbie", "Dumbrell", "robbie@outlook.com");
@@ -52,26 +55,36 @@ public class Runner {
 //        List<Advert> allActiveAdverts = DBAdvert.getAllActiveAdverts();
 //
 //        List<Advert> searchedAdverts = DBAdvert.getAllSearchedActiveAdverts("car");
-
+//
         Comment comment1 = new Comment(user1, advert1, "Hello, I really like the look of this!");
         Comment comment2 = new Comment(user1, advert2, "Hello, I really like the look of this!");
         Comment comment3 = new Comment(user1, advert3, "Hello, I really like the look of this!");
         Comment comment4 = new Comment(user2, advert1, "Hello, I really like the look of this!");
         Comment comment5 = new Comment(user2, advert4, "Hello, I really like the look of this!");
-
+//
         DBHelper.save(comment1);
         DBHelper.save(comment2);
         DBHelper.save(comment3);
         DBHelper.save(comment4);
         DBHelper.save(comment5);
+//
+//        List<Comment> user1Comments = DBComment.getAllCommentsByUser(user1);
+//        List<Comment> advert1Comments = DBComment.getAllCommentsForAdvert(advert1);
 
-        List<Comment> user1Comments = DBComment.getAllCommentsByUser(user1);
-        List<Comment> advert1Comments = DBComment.getAllCommentsForAdvert(advert1);
+        Rating rating1 = new Rating(user1, user2, RatingValue.THREE, "All good");
+        Rating rating2 = new Rating(user1, user2, RatingValue.THREE, "All good");
+        Rating rating3 = new Rating(user1, user2, RatingValue.THREE, "All good");
+        DBHelper.save(rating1);
+        DBHelper.save(rating2);
+        DBHelper.save(rating3);
+
+//        DBHelper.delete(user1);
+//        DBHelper.delete(user2);
+
 
         List<User> searchUsers = DBUser.getAllSearchedActiveUsers("danny");
 
-        Rating rating1 = new Rating(user1, user2, RatingValue.FOUR, "All good");
-        DBHelper.save(rating1);
+        Double averageRatinguser2 = DBUser.calculateAverageRatingForUser(user2);
 
     }
     

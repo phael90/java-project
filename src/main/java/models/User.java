@@ -1,9 +1,11 @@
 package models;
 
+import db.DBRating;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,6 +95,7 @@ public class User {
     }
 
     @OneToMany(mappedBy = "user")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     public List<Comment> getCommentsMade() {
         return commentsMade;
     }
@@ -102,6 +105,7 @@ public class User {
     }
 
     @OneToMany(mappedBy = "rater")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     public List<Rating> getRatingsMade() {
         return ratingsMade;
     }
@@ -111,6 +115,7 @@ public class User {
     }
 
     @OneToMany(mappedBy = "ratee")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     public List<Rating> getRatingsReceived() {
         return ratingsReceived;
     }
@@ -118,4 +123,28 @@ public class User {
     public void setRatingsReceived(List<Rating> ratingsReceived) {
         this.ratingsReceived = ratingsReceived;
     }
+
+    public Double calculateAverageRatingReceived(){
+        List<Rating> ratingsReceived = DBRating.getAllRatingsReceivedByUser(this);
+        this.setRatingsReceived(ratingsReceived);
+
+        double sumOfRatings = 0;
+        for (Rating rating : ratingsReceived){
+            double ratingNumber = rating.getValue().getRatingNumber();
+            sumOfRatings += ratingNumber;
+        }
+
+        if (sumOfRatings == 0) {
+            return null;
+        }
+
+        double numberOfRatings = this.ratingsReceived.size();
+        double averageRating = (sumOfRatings / numberOfRatings);
+
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        averageRating = Double.valueOf(decimalFormat.format(averageRating));
+
+        return averageRating;
+    }
+
 }

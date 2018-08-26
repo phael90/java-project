@@ -4,13 +4,12 @@
     <input type="search" name="search" placeholder="Search Adverts...">
 </form>
 
-
-
 <div class="categoryButtons">
 
     #foreach ($category in $allCategories)
-    <a href="/adverts/category/$category">$category.getNiceName()</a>
-#end
+        <a href="/adverts/category/$category">$category.getNiceName()</a>
+    #end
+
 </div>
 
 <div class="advertContainer">
@@ -46,6 +45,8 @@
         #end
 
     </table>
-    <a class="button" href="/adverts/new">Add advert</a>
+
 </div>
+
+<a class="button" href="/adverts/new">Add advert</a>
 

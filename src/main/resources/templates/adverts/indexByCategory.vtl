@@ -1,18 +1,48 @@
-<p class="advertHeader">Category Adverts</p>
+<p class="advertHeader">$category.getNiceName() Adverts</p>
+
+<form action="/adverts" method="get">
+    <input type="search" name="search" placeholder="Search Adverts...">
+</form>
+
+<div class="categoryButtons">
+
+    #foreach ($category in $allCategories)
+        <a href="/adverts/category/$category">$category.getNiceName()</a>
+    #end
+
+    <a href="/adverts">All Adverts</a>
+
+</div>
+
 <div class="advertContainer" >
+
+    #if ($allCategoryAdverts.size() == 0)
+
+        <p>There are no adverts in $category.getNiceName().</p>
+
+    #else
+
     <table>
+
         <tr>
             <th>Title</th>
             <th>Category</th>
             <th>Price</th>
         </tr>
+
         #foreach ($advert in $allCategoryAdverts)
-        <tr>
-            <td><a href="/adverts/$advert.getId()">
-                $advert.getTitle()</a></td>
-            <td>$advert.getPrice()</td>
-        </tr>
+            <tr>
+                <td><a href="/adverts/$advert.getId()">
+                    $advert.getTitle()</a></td>
+                <td>$advert.getCategory().getNiceName()</td>
+                <td>$advert.getPrice()</td>
+            </tr>
         #end
+
     </table>
-    <a class="button" href="/adverts/new">Add advert</a>
+
+    #end
+
 </div>
+
+<a class="button" href="/adverts/new">Add advert</a>
