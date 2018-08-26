@@ -4,6 +4,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -118,4 +119,18 @@ public class User {
     public void setRatingsReceived(List<Rating> ratingsReceived) {
         this.ratingsReceived = ratingsReceived;
     }
+
+    public double calculateAverageRatingReceived(){
+        double sumOfRatings = 0;
+        for (Rating rating : ratingsReceived){
+            double ratingNumber = rating.getValue().getRatingNumber();
+            sumOfRatings += ratingNumber;
+        }
+        double numberOfRatings = this.ratingsReceived.size();
+        double averageRating = (sumOfRatings / numberOfRatings);
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        averageRating = Double.valueOf(decimalFormat.format(averageRating));
+        return averageRating;
+    }
+
 }
