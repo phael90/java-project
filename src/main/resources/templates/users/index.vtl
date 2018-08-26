@@ -27,6 +27,11 @@
             #foreach ($user in $allUsers)
                 <tr>
                     <td><a href="/users/$user.getId()">$user.getUsername()</a></td>
+                    #if ($user.calculateAverageRatingReceived() != $null)
+                        <td>$user.calculateAverageRatingReceived()</td>
+                    #else
+                        <td>-</td>
+                    #end
                 </tr>
              #end
 

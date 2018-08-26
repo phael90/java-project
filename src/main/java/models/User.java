@@ -1,5 +1,6 @@
 package models;
 
+import db.DBRating;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -121,6 +122,9 @@ public class User {
     }
 
     public Double calculateAverageRatingReceived(){
+        List<Rating> ratingsReceived = DBRating.getAllRatingsReceivedByUser(this);
+        this.setRatingsReceived(ratingsReceived);
+
         double sumOfRatings = 0;
         for (Rating rating : ratingsReceived){
             double ratingNumber = rating.getValue().getRatingNumber();
