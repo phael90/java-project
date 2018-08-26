@@ -2,9 +2,7 @@ package Controllers;
 
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
-
 import java.util.HashMap;
-
 import static spark.Spark.get;
 
 public class MainController {

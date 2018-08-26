@@ -68,7 +68,7 @@ public class Runner {
         List<Comment> user1Comments = DBComment.getAllCommentsByUser(user1);
         List<Comment> advert1Comments = DBComment.getAllCommentsForAdvert(advert1);
 
-        List<User> searchUsers = DBUser.getAllSearchedActiveUsers("robbie");
+        List<User> searchUsers = DBUser.getAllSearchedActiveUsers("danny");
 
         Rating rating1 = new Rating(user1, user2, RatingValue.FOUR, "All good");
         DBHelper.save(rating1);
