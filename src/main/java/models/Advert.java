@@ -1,5 +1,8 @@
 package models;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -96,6 +99,7 @@ public class Advert {
     }
 
     @OneToMany(mappedBy = "advert")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     public List<Comment> getComments() {
         return comments;
     }

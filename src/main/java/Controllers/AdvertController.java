@@ -55,6 +55,7 @@ public class AdvertController {
             List<Advert> allCategoryAdverts = DBAdvert.getAllAdvertsByCategory(category);
 
             HashMap<String, Object> model = new HashMap<>();
+            model.put("category", category);
             model.put("allCategories", allCategories);
             model.put("allCategoryAdverts", allCategoryAdverts);
             model.put("template", "templates/adverts/indexByCategory.vtl");

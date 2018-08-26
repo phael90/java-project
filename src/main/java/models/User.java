@@ -95,6 +95,7 @@ public class User {
     }
 
     @OneToMany(mappedBy = "user")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     public List<Comment> getCommentsMade() {
         return commentsMade;
     }
@@ -104,6 +105,7 @@ public class User {
     }
 
     @OneToMany(mappedBy = "rater")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     public List<Rating> getRatingsMade() {
         return ratingsMade;
     }
@@ -113,6 +115,7 @@ public class User {
     }
 
     @OneToMany(mappedBy = "ratee")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     public List<Rating> getRatingsReceived() {
         return ratingsReceived;
     }
