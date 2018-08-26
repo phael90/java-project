@@ -1,31 +1,37 @@
 #if ($advert != $null)
-<p class="advertForm">Advert Form</p>
-<div>
-    <form class="new-advert_form=" action="/adverts" method="post">
 
-        <label for="title">Title</label>
-        <input type="text" class="inputbox" name="title" required="true" id="title" value="$advert.getTitle()">
+    <p class="advertForm">Advert Form</p>
 
-        <label for="description">Description</label>
-        <input type="text" class="inputbox" name="description" required="true" id="description" value="$advert.getDescription()">
+    <div>
 
-        <label for="category">Category</label>
-        <select name="category" id="category" required="true">
-            #foreach ($category in $allCategories)
-            <option value="$category"
-                    #if ($advert.getCategory() == $category)
-                    selected="selected"
-                    #end >
-                $category.getNiceName()
-            </option>
-            #end
-        </select>
-        <label for="price">Price</label>
-        <input type="number" class="inputbox" name="price" required="true" id="price" value="$advert.getPrice()">
-        <input type="submit" class="button" value="Update advert">
+        <form class="new-advert_form=" action="/adverts/$advert.getId()" method="post">
 
-    </form>
-</div>
+            <label for="title">Title</label>
+            <input type="text" class="inputbox" name="title" required="true" id="title" value="$advert.getTitle()">
+
+            <label for="description">Description</label>
+            <input type="text" class="inputbox" name="description" required="true" id="description" value="$advert.getDescription()">
+
+            <label for="category">Category</label>
+            <select name="category" id="category" required="true">
+                #foreach ($category in $allCategories)
+                <option value="$category"
+                        #if ($advert.getCategory() == $category)
+                        selected="selected"
+                        #end >
+                    $category.getNiceName()
+                </option>
+                #end
+            </select>
+
+            <label for="price">Price</label>
+            <input type="number" class="inputbox" name="price" required="true" id="price" value="$advert.getPrice()">
+
+            <input type="submit" class="button" value="Update advert">
+
+        </form>
+
+    </div>
 
 #else
 
