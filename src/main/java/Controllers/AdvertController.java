@@ -47,12 +47,15 @@ public class AdvertController {
 
         get("/adverts/category/:category", (req, res) -> {
 
+            Category[] allCategories = Category.values();
+
             String categoryString = req.params(":category");
             Category category = Category.valueOf(categoryString);
 
             List<Advert> allCategoryAdverts = DBAdvert.getAllAdvertsByCategory(category);
 
             HashMap<String, Object> model = new HashMap<>();
+            model.put("allCategories", allCategories);
             model.put("allCategoryAdverts", allCategoryAdverts);
             model.put("template", "templates/adverts/indexByCategory.vtl");
 
