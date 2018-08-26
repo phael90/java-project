@@ -1,0 +1,21 @@
+
+<p>Reviews Received By $user.getUsername()</p>
+
+<table>
+
+    <tr>
+        <th>Rated By</th>
+        <th>Score</th>
+        <th>Review</th>
+    </tr>
+
+    #foreach ($rating in $ratingsReceived)
+        <tr>
+            <td><a href="/users/$rating.getRater().getId()">$rating.getRater().getUsername()</a></td>
+            <td>$rating.getValue().getRatingNumber()</td>
+            <td>$rating.getMessage()</td>
+        </tr>
+    #end
+
+
+</table>

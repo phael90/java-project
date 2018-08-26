@@ -12,6 +12,8 @@ public class Runner {
 
         DBHelper.deleteAll(User.class);
         DBHelper.deleteAll(Advert.class);
+        DBHelper.deleteAll(Comment.class);
+        DBHelper.deleteAll(Rating.class);
 
         User user1 = new User("phael90", "Raphael", "Ugha", "raph@outlook.com");
         User user2 = new User("robbieisthebest", "Robbie", "Dumbrell", "robbie@outlook.com");
@@ -68,10 +70,16 @@ public class Runner {
         List<Comment> user1Comments = DBComment.getAllCommentsByUser(user1);
         List<Comment> advert1Comments = DBComment.getAllCommentsForAdvert(advert1);
 
+        Rating rating1 = new Rating(user1, user2, RatingValue.THREE, "All good");
+        Rating rating2 = new Rating(user1, user2, RatingValue.THREE, "All good");
+        Rating rating3 = new Rating(user1, user2, RatingValue.THREE, "All good");
+        DBHelper.save(rating1);
+        DBHelper.save(rating2);
+        DBHelper.save(rating3);
+
         List<User> searchUsers = DBUser.getAllSearchedActiveUsers("robbie");
 
-        Rating rating1 = new Rating(user1, user2, RatingValue.FOUR, "All good");
-        DBHelper.save(rating1);
+        Double averageRatinguser2 = DBUser.calculateAverageRatingForUser(user2);
 
     }
     

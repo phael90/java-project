@@ -120,16 +120,23 @@ public class User {
         this.ratingsReceived = ratingsReceived;
     }
 
-    public double calculateAverageRatingReceived(){
+    public Double calculateAverageRatingReceived(){
         double sumOfRatings = 0;
         for (Rating rating : ratingsReceived){
             double ratingNumber = rating.getValue().getRatingNumber();
             sumOfRatings += ratingNumber;
         }
+
+        if (sumOfRatings == 0) {
+            return null;
+        }
+
         double numberOfRatings = this.ratingsReceived.size();
         double averageRating = (sumOfRatings / numberOfRatings);
+
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         averageRating = Double.valueOf(decimalFormat.format(averageRating));
+
         return averageRating;
     }
 

@@ -9,7 +9,16 @@
         <li>e-Mail: $user.geteMail()</li>
     </ul>
 
-    <a class="button" href="/users/$user.getId()/edit">Edit Details</a>
+<a class="button" href="/users/$user.getId()/edit">Edit Details</a>
+
+    #if ($averageRating != $null)
+        <p>Average Rating:</p>
+        <p><a href="/users/$user.getId()/ratings">$averageRating</a></p>
+    #else
+        <p>No Reviews have been made about this user!</p>
+    #end
+
+    <a href="/users/$user.getId()/ratings/new" class="button">Make a Review</a>
 
     <div class="activeAdverts">
 
@@ -77,8 +86,6 @@
     <form action="/users/$user.getId()/delete" method="post">
         <input type="submit" class="button" value="Delete Account"
     </form>
-
-<a href="/users/$user.getId()/ratings/new" class="button">Make a Review</a>
 
 #else
 

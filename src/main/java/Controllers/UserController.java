@@ -30,6 +30,8 @@ public class UserController {
             String searchEntry = req.queryParams("search");
             List<User> searchResults = DBUser.getAllSearchedActiveUsers(searchEntry);
 
+            HashMap<User, Double> userAverageRatings = new HashMap<>();
+
             HashMap<String, Object> model = new HashMap<>();
             model.put("allUsers", allUsers);
             model.put("searchResults", searchResults);
@@ -74,10 +76,13 @@ public class UserController {
             List<Advert> userActiveAdverts = DBUser.getAllActiveAdverts(user);
             List<Advert> userArchivedAdverts = DBUser.getAllArchivedAdverts(user);
 
+            Double averageRating = DBUser.calculateAverageRatingForUser(user);
+
             HashMap<String, Object> model = new HashMap<>();
             model.put("user", user);
             model.put("userActiveAdverts", userActiveAdverts);
             model.put("userArchivedAdverts", userArchivedAdverts);
+            model.put("averageRating", averageRating);
             model.put("template", "templates/users/show.vtl");
 
             return new ModelAndView(model, "templates/layout.vtl");

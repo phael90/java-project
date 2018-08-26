@@ -1,6 +1,7 @@
 package db;
 
 import models.Advert;
+import models.Rating;
 import models.User;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -74,6 +75,12 @@ public class DBUser {
             session.close();
         }
         return results;
+    }
+
+    public static Double calculateAverageRatingForUser(User user){
+        List<Rating> userRatingsReceived = DBRating.getAllRatingsReceivedByUser(user);
+        user.setRatingsReceived(userRatingsReceived);
+        return user.calculateAverageRatingReceived();
     }
 
 }
