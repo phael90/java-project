@@ -13,6 +13,11 @@
         <tr>
             <td><a href="/users/$rating.getRater().getId()">$rating.getRater().getUsername()</a></td>
             <td>$rating.getValue().getRatingNumber()</td>
+            <div>
+                #foreach ($value in [1..$rating.getValue().getRatingNumber()])
+                <i class="fas fa-star"></i>
+                #end
+            </div>
             <td>$rating.getMessage()</td>
         </tr>
     #end
