@@ -85,6 +85,8 @@ public class Runner {
 //        List<User> searchUsers = DBUser.getAllSearchedActiveUsers("robbie");
 //
 //        Double averageRatinguser2 = DBUser.calculateAverageRatingForUser(user2);
+        List<User> searchUsers = DBUser.getAllSearchedActiveUsers("danny");
+
 
         Boolean doesphael90Exist = DBUser.doesUserNameExist("phael90");
         Boolean doesphael91Exist = DBUser.doesUserNameExist("phael91");
