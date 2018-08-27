@@ -43,6 +43,8 @@ public class AdvertController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
+
+
 //        INDEX BY CATEGORY
 
         get("/adverts/category/:category", (req, res) -> {
