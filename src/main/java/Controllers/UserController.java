@@ -57,13 +57,31 @@ public class UserController {
             String lastName = req.queryParams("lastName");
             String eMail = req.queryParams("eMail");
 
-            User newUser = new User(username, firstName, lastName, eMail);
-            DBHelper.save(newUser);
+            Boolean doesUserNameExist = DBUser.doesUserNameExist(username);
 
-            res.redirect("/users");
+            if (!doesUserNameExist) {
+                User newUser = new User(username, firstName, lastName, eMail);
+                DBHelper.save(newUser);
+
+                res.redirect("/users");
+
+            } else {
+                res.redirect("/users/new/username_exists");
+            }
+
             return null;
 
         });
+
+        //    NEW USERNAME EXISTS
+        get("/users/new/username_exists", (req, res) -> {
+
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("template", "templates/users/new_username_exists.vtl");
+
+            return new ModelAndView(model, "templates/layout.vtl");
+
+        }, new VelocityTemplateEngine());
 
         //    SHOW
         get("/users/:id", (req, res) -> {

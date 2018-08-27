@@ -82,9 +82,12 @@ public class Runner {
 //        DBHelper.delete(user2);
 
 
-        List<User> searchUsers = DBUser.getAllSearchedActiveUsers("robbie");
+//        List<User> searchUsers = DBUser.getAllSearchedActiveUsers("robbie");
+//
+//        Double averageRatinguser2 = DBUser.calculateAverageRatingForUser(user2);
 
-        Double averageRatinguser2 = DBUser.calculateAverageRatingForUser(user2);
+        Boolean doesphael90Exist = DBUser.doesUserNameExist("phael90");
+        Boolean doesphael91Exist = DBUser.doesUserNameExist("phael91");
 
     }
     

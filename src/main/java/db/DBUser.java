@@ -11,6 +11,8 @@ import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
+import static db.DBHelper.getAll;
+
 public class DBUser {
 
     private static Session session;
@@ -81,6 +83,16 @@ public class DBUser {
         List<Rating> userRatingsReceived = DBRating.getAllRatingsReceivedByUser(user);
         user.setRatingsReceived(userRatingsReceived);
         return user.calculateAverageRatingReceived();
+    }
+
+    public static Boolean doesUserNameExist(String username){
+        List<User> allUsers = DBHelper.getAll(User.class);
+        for (User user : allUsers){
+            if (user.getUsername().equals(username)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

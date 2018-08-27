@@ -159,7 +159,9 @@ public class AdvertController {
         post("adverts/:id/delete", (req, res) ->{
             int advertId = Integer.parseInt(req.params(":id"));
             Advert advert = DBHelper.findById(Advert.class, advertId);
+
             DBHelper.delete(advert);
+
             res.redirect("/adverts");
             return null;
         });
