@@ -173,8 +173,6 @@ public class UserController {
         }, new VelocityTemplateEngine());
 
 
-
-
         //    DELETE
         post("/users/:id/delete", (req, res) -> {
 
@@ -186,9 +184,7 @@ public class UserController {
             res.redirect("/users");
             return null;
         });
+
     }
-
-
-
 
 }
