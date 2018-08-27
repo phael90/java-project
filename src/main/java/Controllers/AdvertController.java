@@ -57,6 +57,7 @@ public class AdvertController {
         }, new VelocityTemplateEngine());
 
 
+
 //        INDEX BY CATEGORY
 
         get("/adverts/category/:category", (req, res) -> {

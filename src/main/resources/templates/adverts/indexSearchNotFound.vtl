@@ -1,0 +1,28 @@
+<p class="advertHeader">All Adverts</p>
+
+<form action="/adverts" method="get">
+    <input type="search" name="search" placeholder="Search Adverts...">
+</form>
+
+<div class="categoryButtons">
+
+    #foreach ($category in $allCategories)
+    <a href="/adverts/category/$category">$category.getNiceName()</a>
+    #end
+
+</div>
+
+<div class="advertContainer">
+
+        #if ($searchResults.size() > 0)
+
+        <p>No Search results</p>
+
+        #end
+
+    </table>
+
+</div>
+
+<a class="button" href="/adverts/new">Add advert</a>
+
