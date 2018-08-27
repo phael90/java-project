@@ -37,11 +37,25 @@ public class AdvertController {
             model.put("allAdverts", allAdverts);
             model.put("allCategories", allCategories);
             model.put("searchResults", searchResults);
-            model.put("template", "templates/adverts/index.vtl");
 
+            if (searchEntry != null && searchResults.size() == 0){
+                model.put("template", "templates/adverts/indexSearchNotFound.vtl");
+            } else {
+                model.put("template", "templates/adverts/index.vtl");
+            }
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
+
+        //INDEX WHEN SEARCH NOT FOUND
+        get("/adverts/search_not_found", (req, res) ->{
+
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("template", "templates/adverts/index.vtl");
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
 
 //        INDEX BY CATEGORY
 
@@ -89,6 +103,7 @@ public class AdvertController {
 
             String title = req.queryParams("title");
             String description = req.queryParams("description");
+
             Category category = Category.valueOf(req.queryParams("category"));
             double price = Double.parseDouble(req.queryParams("price"));
 
