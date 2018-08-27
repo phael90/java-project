@@ -95,5 +95,20 @@ public class DBUser {
         return false;
     }
 
+    public static User findUserByUserName(String username) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        User result = null;
+        try {
+            Criteria cr = session.createCriteria(User.class);
+            cr.add(Restrictions.eq("username", username));
+            result = (User) cr.uniqueResult();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return result;
+    }
+
 }
 

@@ -3,6 +3,7 @@ package Controllers;
 import db.DBHelper;
 import db.DBUser;
 import models.Advert;
+import models.Session;
 import models.User;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -20,6 +21,38 @@ public class UserController {
     }
 
     public static void setUpRoutes(){
+
+        Session loginSession = new Session();
+
+//        LOG IN
+        get("/users/login", (req, res) -> {
+
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("template", "templates/users/login.vtl");
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+
+//        LOG IN POST
+        post("/", (req, res) -> {
+
+            String username = req.queryParams("username");
+            User currentUser = DBUser.findUserByUserName(username);
+
+            Boolean doesUserNameExist = DBUser.doesUserNameExist(username);
+
+            if (!doesUserNameExist) {
+                res.redirect("/users/login");
+
+            } else {
+                loginSession.setCurrentUser(currentUser);
+                res.redirect("/users/" + currentUser.getId());
+            }
+
+            return null;
+
+        });
 
         //    INDEX
         get("/users", (req, res) -> {
@@ -101,6 +134,7 @@ public class UserController {
 
         }, new VelocityTemplateEngine());
 
+
         //    SHOW
         get("/users/:id", (req, res) -> {
 
@@ -114,6 +148,7 @@ public class UserController {
 
             HashMap<String, Object> model = new HashMap<>();
             model.put("user", user);
+            model.put("loginSession", loginSession);
             model.put("userActiveAdverts", userActiveAdverts);
             model.put("userArchivedAdverts", userArchivedAdverts);
             model.put("averageRating", averageRating);
@@ -171,8 +206,6 @@ public class UserController {
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
-
-
 
 
         //    DELETE

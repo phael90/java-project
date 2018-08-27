@@ -81,7 +81,6 @@ public class AdvertController {
         }, new VelocityTemplateEngine());
 
 
-
         //NEW
 
         get("/adverts/new", (req, res) -> {

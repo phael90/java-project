@@ -9,7 +9,11 @@
         <li>e-Mail: $user.geteMail()</li>
     </ul>
 
-<a class="button" href="/users/$user.getId()/edit">Edit Details</a>
+    #if ($loginSession.getCurrentUser().getId() == $user.getId())
+
+        <a class="button" href="/users/$user.getId()/edit">Edit Details</a>
+
+    #end
 
     #if ($averageRating != $null)
         <p>Average Rating:</p>
@@ -37,6 +41,9 @@
                     <td>$advert.getTitle()</td>
                     <td>$advert.getCategory().getNiceName()</td>
                     <td>$advert.getPrice()</td>
+
+                    #if ($loginSession.getCurrentUser().getId() == $user.getId())
+
                     <td>
                         <form action="/adverts/$advert.getId()/delete/by_user/$user.getId()" method="post">
                             <input type="submit" class="button" value="Delete">
@@ -47,6 +54,8 @@
                             <input type="submit" class="button" value="Archive">
                         </form>
                     </td>
+
+                    #end
                 </tr>
             #end
 
@@ -71,11 +80,16 @@
                 <td>$advert.getTitle()</td>
                 <td>$advert.getCategory().getNiceName()</td>
                 <td>$advert.getPrice()</td>
+
+                #if ($loginSession.getCurrentUser().getId() == $user.getId())
+
                 <td>
                     <form action="/adverts/$advert.getId()/delete/by_user/$user.getId()" method="post">
                         <input type="submit" class="button" value="Delete">
                     </form>
                 </td>
+
+                #end
             </tr>
             #end
 
@@ -83,9 +97,13 @@
 
     </div>
 
+    #if ($loginSession.getCurrentUser().getId() == $user.getId())
+
     <form action="/users/$user.getId()/delete/confirm" method="get">
         <input type="submit" class="button" value="Delete Account">
     </form>
+
+    #end
 
 #else
 
