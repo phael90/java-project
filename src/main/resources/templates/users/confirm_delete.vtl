@@ -1,0 +1,11 @@
+<div>
+
+    <p>Are you sure you want to delete $deletingUser.getUsername()? This will wipe all data relating to this user account.</p>
+
+    <form action="/users/$deletingUser.getId()/delete" method="post">
+        <input type="submit" class="button" value="Delete">
+    </form>
+
+    <a class="button" href="/users/$deletingUser.getId()">Return to Profile</a>
+
+</div>

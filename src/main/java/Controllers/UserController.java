@@ -56,9 +56,6 @@ public class UserController {
         }, new VelocityTemplateEngine());
 
 
-
-
-
         //    NEW
         get("/users/new", (req, res) -> {
 
@@ -160,6 +157,20 @@ public class UserController {
             res.redirect("/users/" + userId);
             return null;
         });
+
+//        CONFIRM DELETE
+        get("/users/:id/delete/confirm", (req, res) -> {
+
+            int userId = Integer.parseInt(req.params(":id"));
+            User deletingUser = DBHelper.findById(User.class, userId);
+
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("deletingUser", deletingUser);
+            model.put("template", "templates/users/confirm_delete.vtl");
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
 
         //    DELETE
         post("/users/:id/delete", (req, res) -> {
