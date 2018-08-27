@@ -47,6 +47,7 @@ public class AdvertController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
+
         //INDEX WHEN SEARCH NOT FOUND
         get("/adverts/search_not_found", (req, res) ->{
 

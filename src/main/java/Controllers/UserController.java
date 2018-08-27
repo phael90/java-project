@@ -35,9 +35,29 @@ public class UserController {
             model.put("searchResults", searchResults);
             model.put("template", "templates/users/index.vtl");
 
+            if (searchEntry != null && searchResults.size() == 0){
+                model.put("template", "templates/users/indexSearchNotFound.vtl");
+            } else {
+                model.put("template", "templates/users/index.vtl");
+            }
+
             return new ModelAndView(model, "templates/layout.vtl");
 
         }, new VelocityTemplateEngine());
+
+        //    INDEX USER NOT FOUND
+        get("/users", (req, res) -> {
+
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("template", "templates/users/index.vtl");
+
+            return new ModelAndView(model, "templates/layout.vtl");
+
+        }, new VelocityTemplateEngine());
+
+
+
+
 
         //    NEW
         get("/users/new", (req, res) -> {
