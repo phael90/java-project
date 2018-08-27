@@ -24,7 +24,6 @@ public class UserController {
         //    INDEX
         get("/users", (req, res) -> {
 
-
             List<User> allUsers = DBHelper.getAll(User.class);
 
             String searchEntry = req.queryParams("search");
@@ -44,6 +43,7 @@ public class UserController {
             return new ModelAndView(model, "templates/layout.vtl");
 
         }, new VelocityTemplateEngine());
+
 
         //    INDEX USER NOT FOUND
         get("/users", (req, res) -> {
@@ -66,6 +66,7 @@ public class UserController {
 
         }, new VelocityTemplateEngine());
 
+        
         //    CREATE
         post("/users", (req, res) -> {
 
@@ -170,6 +171,8 @@ public class UserController {
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
+
+
 
 
         //    DELETE
