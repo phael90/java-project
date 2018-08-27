@@ -58,7 +58,6 @@ public class AdvertController {
         }, new VelocityTemplateEngine());
 
 
-
 //        INDEX BY CATEGORY
 
         get("/adverts/category/:category", (req, res) -> {
@@ -151,7 +150,6 @@ public class AdvertController {
         //UPDATE
 
         post("adverts/:id", (req, res) ->{
-
 
             int advertId = Integer.parseInt(req.params(":id"));
             Advert advert = DBHelper.findById(Advert.class, advertId);

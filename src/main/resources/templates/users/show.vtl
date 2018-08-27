@@ -22,6 +22,12 @@
 
     <div class="activeAdverts">
 
+        #if ($userActiveAdverts.size() == 0)
+
+            <p>$user.getUsername() has no active adverts.</p>
+
+        #else
+
         <p>Current Adverts</p>
 
         <table>
@@ -52,11 +58,21 @@
 
         </table>
 
+        #end
+
+        <a class="button" href="/adverts/new">Create Advert</a>
+
     </div>
 
     <div class="archivedAdverts">
 
-        <p>Old Adverts</p>
+        #if ($userArchivedAdverts.size() == 0)
+
+            <p>$user.getUsername() has no historical adverts.</p>
+
+        #else
+
+        <p>Historical Adverts</p>
 
         <table>
 
@@ -80,6 +96,8 @@
             #end
 
         </table>
+
+        #end
 
     </div>
 
