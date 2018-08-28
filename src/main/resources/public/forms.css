@@ -8,12 +8,12 @@
   font-size: 20px;
   position: relative;
   top: 50%;
-  transform: translateY(-50%);
+  opacity: 0.7;
 }
 
 .search{
   height: 80px;
-  width: auto;
+  width: 80vh;
 }
 .search-adverts{
   width: 75vh;
@@ -65,4 +65,12 @@
   text-align: center;
   display: block;
   width: 100%;
+}
+
+input {
+  display: block;
+}
+
+textarea {
+  width: 100%
 }

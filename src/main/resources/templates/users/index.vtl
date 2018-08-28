@@ -2,10 +2,11 @@
 
 <div class="usersContainer">
 
-
-    <form action="/users" method="get">
-        <input type="search" name="search" placeholder="Search Users...">
+    <form action="/users" method="get" class="search" autocomplete="off">
+        <input class="search-adverts" type="search" name="search" placeholder="Search Users...">
     </form>
+
+    <a class="button-create" href="/users/new">Create Account</a>
 
     <table>
 
@@ -45,4 +46,3 @@
 
 </div>
 
-<a class="button-create" href="/users/new">Create Account</a>

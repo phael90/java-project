@@ -2,6 +2,8 @@
 
     <p class="heading">$user.getUsername()</p>
 
+    <div class="user-details-container">
+
     <ul>
         <li>Username: $user.getUsername()</li>
         <li>First Name: $user.getFirstName()</li>
@@ -9,7 +11,11 @@
         <li>e-Mail: $user.geteMail()</li>
     </ul>
 
-<a class="button" href="/users/$user.getId()/edit">Edit Details</a>
+        <a class="button" href="/users/$user.getId()/edit">Edit Details</a>
+
+    </div>
+
+<div class="user-reviews-container">
 
     #if ($averageRating != $null)
         <p>Average Rating:</p>
@@ -20,6 +26,8 @@
 
     <a href="/users/$user.getId()/ratings/new" class="button">Make a Review</a>
 
+</div>
+
     <div class="activeAdverts">
 
         #if ($userActiveAdverts.size() == 0)
@@ -28,7 +36,7 @@
 
         #else
 
-        <p>Current Adverts</p>
+        <p class="sub-heading">Current Adverts</p>
 
         <table>
 
@@ -72,7 +80,7 @@
 
         #else
 
-        <p>Historical Adverts</p>
+        <p class="sub-heading">Historical Adverts</p>
 
         <table>
 

@@ -12,9 +12,8 @@
     <form action="/adverts" method="get" class="search">
         <input class="search-adverts" type="search" name="search" placeholder="Search Adverts...">
     </form>
-</div>
 
-<form action="/adverts" method="get">
+<form action="/adverts" method="get" class="filter">
 
     <label for="sort">Sort By:</label>
     <select name="sort" id="sort">
@@ -27,6 +26,8 @@
 
     <input type="submit" value="Sort">
 </form>
+
+<a class="button-create" href="/adverts/new">Add advert</a>
 
 <div class="advertContainer">
     <table>
@@ -65,5 +66,4 @@
 
 </div>
 
-<a class="button-create" href="/adverts/new">Add advert</a>
 
