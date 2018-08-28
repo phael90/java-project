@@ -31,3 +31,7 @@
     margin: 8px 0;
     box-sizing: border-box;
 }
+
+.filter {
+  padding: 20px;
+}

@@ -16,16 +16,20 @@ a:hover {
 }
 
 .heading {
-  height: 60px;
+  padding: 20px;
   width: 100%;
-  background-color: red;
+  background-color: white;
   clear: right;
-}
-/* fucking align left*/
-/* .heading p{
   font-size: 2em;
-  text-align: right;
-} */
+}
+
+.sub-heading {
+  padding: 20px;
+  width: 100%;
+  background-color: white;
+  color: black;
+  font-size: 1.5em;
+}
 
 .home-container {
   width: 100%;
@@ -38,4 +42,27 @@ a:hover {
 
 .search-container{
   padding-top: 25vh;
+}
+
+
+
+.user-details-container {
+  border: 1px solid black;
+  width: 40%;
+  display: inline-block;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
+.user-details-container ul li {
+  list-style: none;
+}
+
+
+.user-reviews-container {
+  border: 1px solid black;
+  width: 40%;
+  display: inline-block;
+  margin: 10px 0px;
+  padding: 10px;
 }
