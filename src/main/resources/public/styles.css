@@ -15,6 +15,11 @@ a:hover {
   text-decoration: underline;
 }
 
+.container{
+  background-image: url("image/desert2.jpg");
+  background-position: center;
+}
+
 .heading {
   padding: 20px;
   width: 100%;
@@ -43,14 +48,6 @@ a:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-.search-container{
-  padding-top: 25vh;
-}
-
-
-
-
 
 .user-details-container {
   border: 1px solid black;

@@ -6,14 +6,12 @@
   background-color: black;
   color: white;
   font-size: 20px;
-  position: relative;
-  top: 50%;
   opacity: 0.7;
 }
 
 .search{
   height: 80px;
-  width: 80vh;
+  width: 100vh;
 }
 .search-adverts{
   width: 75vh;
@@ -22,14 +20,7 @@
   border-radius: 5px;
   background-color: rgb(217, 217, 217);
   margin-top: 12px;
-    font-size: 20px;
-}
-
-.search-adverts input {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
+  font-size: 20px;
 }
 
 .content-container {
@@ -41,6 +32,10 @@
 .form-container {
   width: 100%;
   margin: auto;
+}
+
+.search-container{
+  padding-top: 9vh;
 }
 
 .new-user-form {
@@ -65,12 +60,4 @@
   text-align: center;
   display: block;
   width: 100%;
-}
-
-input {
-  display: block;
-}
-
-textarea {
-  width: 100%
 }
