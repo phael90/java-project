@@ -72,16 +72,22 @@ a button {
   align-self: center;
 }
 
-.category-buttons {
-  
+.category-buttons{
+  height: 45px;
+  width: auto;
+  background-color: white;
+  margin: auto;
+  display: block;
 }
-
 .category-button {
-  font-size: 1em;
-  background-color: black;
-  color: white;
-  padding: 15px 32px 15px 32px;
-  text-decoration: none;
+  height: 44px;
+  font-size: 15px;
+  background-color: white;
+  color: black;
+  padding: 14px 22px 14px 22px;  text-decoration: none;
   cursor: pointer;
   align-self: center;
+  margin: auto;
+  display: inline-block;
+  align-items: stretch;
 }

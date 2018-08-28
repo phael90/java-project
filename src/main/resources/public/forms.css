@@ -10,4 +10,24 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
+.search{
+  height: 80px;
+  width: auto;
+}
+.search-adverts{
+  width: 75vh;
+  padding: 8px 0px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: rgb(217, 217, 217);
+  margin-top: 12px;
+    font-size: 20px;
+}
+
+.search-adverts input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
 }
