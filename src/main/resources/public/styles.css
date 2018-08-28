@@ -19,13 +19,13 @@ a:hover {
   height: 60px;
   width: 100%;
   background-color: red;
-
+  clear: right;
 }
 /* fucking align left*/
-.heading p{
+/* .heading p{
   font-size: 2em;
   text-align: right;
-}
+} */
 
 .home-container {
   width: 100%;
