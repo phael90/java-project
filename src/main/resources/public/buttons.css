@@ -71,3 +71,17 @@ a button {
   cursor: pointer;
   align-self: center;
 }
+
+.category-buttons {
+  
+}
+
+.category-button {
+  font-size: 1em;
+  background-color: black;
+  color: white;
+  padding: 15px 32px 15px 32px;
+  text-decoration: none;
+  cursor: pointer;
+  align-self: center;
+}
