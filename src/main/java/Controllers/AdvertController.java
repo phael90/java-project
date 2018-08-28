@@ -30,14 +30,18 @@ public class AdvertController {
             Category[] allCategories = Category.values();
             List<Advert> allAdverts;
 
-            String sortPrice = req.queryParams("sortPrice");
+            String sort = req.queryParams("sort");
 
-            if (sortPrice == null) {
+            if (sort == null) {
                 allAdverts = DBAdvert.getAllActiveAdverts();
-            } else if (sortPrice.equals("High to Low")) {
+            } else if (sort.equals("High to Low")) {
                 allAdverts = DBAdvert.getAllActiveAdvertsDescendingPrice();
-            } else if (sortPrice.equals("Low to High")) {
+            } else if (sort.equals("Low to High")) {
                 allAdverts = DBAdvert.getAllActiveAdvertsAscendingPrice();
+            } else if (sort.equals("Category A to Z")) {
+                allAdverts = DBAdvert.getAllActiveAdvertsSortedByCategoryAtoZ();
+            } else if (sort.equals("Title A to Z")) {
+                allAdverts = DBAdvert.getAllActiveAdvertsSortedByTitleAtoZ();
             } else {
                 allAdverts = DBAdvert.getAllActiveAdverts();
             }
@@ -81,14 +85,16 @@ public class AdvertController {
 
             List<Advert> allCategoryAdverts;
 
-            String sortPrice = req.queryParams("sortPrice");
+            String sort = req.queryParams("sort");
 
-            if (sortPrice == null) {
+            if (sort == null) {
                 allCategoryAdverts = DBAdvert.getAllAdvertsByCategory(category);;
-            } else if (sortPrice.equals("High to Low")) {
+            } else if (sort.equals("High to Low")) {
                 allCategoryAdverts = DBAdvert.getAllActiveAdvertsDescendingPriceCategory(category);
-            } else if (sortPrice.equals("Low to High")) {
+            } else if (sort.equals("Low to High")) {
                 allCategoryAdverts = DBAdvert.getAllActiveAdvertsAscendingPriceCategory(category);
+            } else if (sort.equals("Title A to Z")) {
+                allCategoryAdverts = DBAdvert.getAllActiveAdvertsSortedByTitleAtoZForCategory(category);
             } else {
                 allCategoryAdverts = DBAdvert.getAllActiveAdverts();
             }

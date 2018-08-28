@@ -148,4 +148,53 @@ public class DBAdvert {
         return results;
     }
 
+    public static List<Advert> getAllActiveAdvertsSortedByCategoryAtoZ(){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Advert> results = null;
+        try{
+            Criteria cr = session.createCriteria(Advert.class);
+            cr.add(Restrictions.eq("archived", false));
+            cr.addOrder(Order.asc("category"));
+            results = cr.list();
+        }catch(HibernateException e){
+            e.printStackTrace();
+        }finally{
+            session.close();
+        }
+        return results;
+    }
+
+    public static List<Advert> getAllActiveAdvertsSortedByTitleAtoZ(){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Advert> results = null;
+        try{
+            Criteria cr = session.createCriteria(Advert.class);
+            cr.add(Restrictions.eq("archived", false));
+            cr.addOrder(Order.asc("title"));
+            results = cr.list();
+        }catch(HibernateException e){
+            e.printStackTrace();
+        }finally{
+            session.close();
+        }
+        return results;
+    }
+
+    public static List<Advert> getAllActiveAdvertsSortedByTitleAtoZForCategory(Category category){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Advert> results = null;
+        try{
+            Criteria cr = session.createCriteria(Advert.class);
+            cr.add(Restrictions.eq("archived", false));
+            cr.add(Restrictions.eq("category", category));
+            cr.addOrder(Order.asc("title"));
+            results = cr.list();
+        }catch(HibernateException e){
+            e.printStackTrace();
+        }finally{
+            session.close();
+        }
+        return results;
+    }
+
 }

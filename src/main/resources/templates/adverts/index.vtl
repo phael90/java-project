@@ -17,11 +17,13 @@
 
 <form action="/adverts" method="get">
 
-    <label for="sortPrice">Sort By Price:</label>
-    <select name="sortPrice" id="sortPrice">
+    <label for="sort">Sort By:</label>
+    <select name="sort" id="sort">
         <option disabled selected value> -- select -- </option>
-        <option value="High to Low">High to Low</option>
-        <option value="Low to High">Low to High</option>
+        <option value="High to Low">Price High to Low</option>
+        <option value="Low to High">Price Low to High</option>
+        <option value="Category A to Z">Category A to Z</option>
+        <option value="Title A to Z">Title A to Z</option>
     </select>
 
     <input type="submit" value="Sort">

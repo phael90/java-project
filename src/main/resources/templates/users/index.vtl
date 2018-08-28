@@ -33,7 +33,7 @@
                 <tr>
                     <td><a href="/users/$user.getId()">$user.getUsername()</a></td>
                     #if ($user.calculateAverageRatingReceived() != $null)
-                        <td>$user.calculateAverageRatingReceived()</td>
+                        <td><a href="/users/$user.getId()/ratings">$user.calculateAverageRatingReceived()</a></td>
                     #else
                         <td>-</td>
                     #end

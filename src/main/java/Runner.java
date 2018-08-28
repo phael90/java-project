@@ -97,6 +97,8 @@ public class Runner {
         List<Advert> getLowToHighPriceVehicles = DBAdvert.getAllActiveAdvertsAscendingPriceCategory(Category.VEHICLES);
         List<Advert> getHighToLowPriceVehicles = DBAdvert.getAllActiveAdvertsDescendingPriceCategory(Category.VEHICLES);
 
+        List<Advert> getAdvertsSortedByCategoryAtoZ = DBAdvert.getAllActiveAdvertsSortedByCategoryAtoZ();
+
     }
     
 }
