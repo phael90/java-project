@@ -31,3 +31,38 @@
     margin: 8px 0;
     box-sizing: border-box;
 }
+
+.content-container {
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+.form-container {
+  width: 100%;
+  margin: auto;
+}
+
+.new-user-form {
+
+  width: 100%;
+  color: black;
+  padding-top: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.input-container {
+  width: 100%;
+  align-self: stretch;
+}
+
+.inputbox {
+  height: 30px;
+  font-size: 1em;
+  text-align: center;
+  display: block;
+  width: 100%;
+}

@@ -1,27 +1,30 @@
 <p class="heading">New User</p>
 
-<form action="/users" method="post" class="newUserForm">
+<div class="content-container">
+    <div class="form-container">
+        <form action="/users" method="post" class="new-user-form" autocomplete="off">
+            <div class="input-container">
+                <label for="username">Username:</label>
+                <input type="text" class="inputbox" name="username" required="true" id="username">
+            </div>
 
-    <label for="username">Username:</label>
-    <input type="text" class="inputbox" name="username" required="true" id="username" >
+            <div class="input-container">
+                <label for="firstName">First Name:</label>
+                <input type="text" class="inputbox" name="firstName" required="true" id="firstName">
+            </div>
 
-    <br>
+            <div class="input-container">
+                <label for="lastName">Last Name:</label>
+                <input type="text" class="inputbox" name="lastName" required="true" id="lastName">
+            </div>
 
-    <label for="firstName">First Name:</label>
-    <input type="text" class="inputbox" name="firstName" required="true" id="firstName">
+            <div class="input-container">
+            <label for="eMail">e-Mail:</label>
+            <input type="email" class="inputbox" name="eMail" required="true" id="eMail">
+            </div>
 
-    <br>
+            <input type="submit" class="button-create" value="Create User">
 
-    <label for="lastName">Last Name:</label>
-    <input type="text" class="inputbox" name="lastName" required="true" id="lastName">
-
-    <br>
-
-    <label for="eMail">e-Mail:</label>
-    <input type="email" class="inputbox" name="eMail" required="true" id="eMail">
-
-    <br>
-
-    <input type="submit" class="button-create" value="Create User">
-
-</form>
+        </form>
+    </div>
+</div>
