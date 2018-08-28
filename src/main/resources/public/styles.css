@@ -31,6 +31,10 @@ a:hover {
   font-size: 1.5em;
 }
 
+.none-found {
+  padding: 20px;
+}
+
 .home-container {
   width: 100%;
   height: 100%;
@@ -43,6 +47,8 @@ a:hover {
 .search-container{
   padding-top: 25vh;
 }
+
+
 
 
 

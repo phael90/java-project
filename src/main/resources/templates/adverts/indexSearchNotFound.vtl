@@ -1,20 +1,20 @@
 <p class="heading">All Adverts</p>
 
-<form action="/adverts" method="get">
-    <input type="search" name="search" placeholder="Search Adverts...">
+<form action="/adverts" method="get" class="search">
+    <input class="search-adverts" type="search" name="search" placeholder="Search Adverts...">
 </form>
 
-<div class="categoryButtons">
+<div class="category-buttons">
 
     #foreach ($category in $allCategories)
-    <a href="/adverts/category/$category">$category.getNiceName()</a>
+    <a class="category-button" href="/adverts/category/$category">$category.getNiceName()</a>
     #end
 
 </div>
 
 <div class="advertContainer">
 
-        <p>No Search results</p>
+        <p class="none-found">No Search results</p>
 
 </div>
 
