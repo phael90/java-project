@@ -23,7 +23,7 @@ public class Runner {
         DBHelper.save(user2);
 
         Advert advert1 = new Advert("An amazing car", "This is a car that is amazing", Category.VEHICLES, 10000, user1);
-        Advert advert4 = new Advert("A bad car", "This is a car that is amazing", Category.VEHICLES, 10000, user1);
+        Advert advert4 = new Advert("A bad car", "This is a car that is amazing", Category.VEHICLES, 15000, user1);
         Advert advert2 = new Advert("An incredible laptop", "This is a laptop that is incredible", Category.ELECTRONICS, 1000, user1);
         Advert advert3 = new Advert("A beautiful cat", "This is a cat that is beautiful", Category.ANIMALS, 200, user2);
 
@@ -90,6 +90,12 @@ public class Runner {
 
         Boolean doesphael90Exist = DBUser.doesUserNameExist("phael90");
         Boolean doesphael91Exist = DBUser.doesUserNameExist("phael91");
+
+        List<Advert> getLowToHighPrice = DBAdvert.getAllActiveAdvertsAscendingPrice();
+        List<Advert> getHighToLowPrice = DBAdvert.getAllActiveAdvertsDescendingPrice();
+
+        List<Advert> getLowToHighPriceVehicles = DBAdvert.getAllActiveAdvertsAscendingPriceCategory(Category.VEHICLES);
+        List<Advert> getHighToLowPriceVehicles = DBAdvert.getAllActiveAdvertsDescendingPriceCategory(Category.VEHICLES);
 
     }
     

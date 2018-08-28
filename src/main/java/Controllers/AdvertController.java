@@ -28,7 +28,19 @@ public class AdvertController {
         get("/adverts", (req, res) ->{
 
             Category[] allCategories = Category.values();
-            List<Advert> allAdverts = DBAdvert.getAllActiveAdverts();
+            List<Advert> allAdverts;
+
+            String sortPrice = req.queryParams("sortPrice");
+
+            if (sortPrice == null) {
+                allAdverts = DBAdvert.getAllActiveAdverts();
+            } else if (sortPrice.equals("High to Low")) {
+                allAdverts = DBAdvert.getAllActiveAdvertsDescendingPrice();
+            } else if (sortPrice.equals("Low to High")) {
+                allAdverts = DBAdvert.getAllActiveAdvertsAscendingPrice();
+            } else {
+                allAdverts = DBAdvert.getAllActiveAdverts();
+            }
 
             String searchEntry = req.queryParams("search");
             List<Advert> searchResults = DBAdvert.getAllSearchedActiveAdverts(searchEntry);
@@ -67,7 +79,19 @@ public class AdvertController {
             String categoryString = req.params(":category");
             Category category = Category.valueOf(categoryString);
 
-            List<Advert> allCategoryAdverts = DBAdvert.getAllAdvertsByCategory(category);
+            List<Advert> allCategoryAdverts;
+
+            String sortPrice = req.queryParams("sortPrice");
+
+            if (sortPrice == null) {
+                allCategoryAdverts = DBAdvert.getAllAdvertsByCategory(category);;
+            } else if (sortPrice.equals("High to Low")) {
+                allCategoryAdverts = DBAdvert.getAllActiveAdvertsDescendingPriceCategory(category);
+            } else if (sortPrice.equals("Low to High")) {
+                allCategoryAdverts = DBAdvert.getAllActiveAdvertsAscendingPriceCategory(category);
+            } else {
+                allCategoryAdverts = DBAdvert.getAllActiveAdverts();
+            }
 
             HashMap<String, Object> model = new HashMap<>();
             model.put("category", category);

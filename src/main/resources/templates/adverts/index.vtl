@@ -15,6 +15,18 @@
     </form>
 </div>
 
+<form action="/adverts" method="get">
+
+    <label for="sortPrice">Sort By Price:</label>
+    <select name="sortPrice" id="sortPrice">
+        <option disabled selected value> -- select -- </option>
+        <option value="High to Low">High to Low</option>
+        <option value="Low to High">Low to High</option>
+    </select>
+
+    <input type="submit" value="Sort">
+</form>
+
 
 <div class="advertContainer">
     <table>
