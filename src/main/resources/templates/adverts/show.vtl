@@ -12,18 +12,18 @@
         </ul>
 
         <form action="/adverts/$advert.getId()/delete" method="post">
-            <input type="submit" class="button" value="Delete Advert">
+            <input type="submit" class="button-delete" value="Delete Advert">
         </form>
 
         <form action="/adverts/$advert.getId()/archive" method="post">
-            <input type="submit" class="button" value="Archive">
+            <input type="submit" class="button-archive" value="Archive">
         </form>
 
-        <a class="button" href="/adverts/$advert.getId()/edit">Edit Advert</a>
+        <a class="button-edit" href="/adverts/$advert.getId()/edit">Edit Advert</a>
 
         <p>Comments</p>
 
-        <a class="button" href="/adverts/$advert.getId()/comments/new">Add Comment</a>
+        <a class="button-create" href="/adverts/$advert.getId()/comments/new">Add Comment</a>
 
         #foreach ($comment in $advertComments)
             <ul>

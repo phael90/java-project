@@ -89,7 +89,7 @@
                 <td>$advert.getPrice()</td>
                 <td>
                     <form action="/adverts/$advert.getId()/delete/by_user/$user.getId()" method="post">
-                        <input type="submit" class="button" value="Delete">
+                        <input type="submit" class="button-delete" value="Delete">
                     </form>
                 </td>
             </tr>
@@ -102,7 +102,7 @@
     </div>
 
     <form action="/users/$user.getId()/delete/confirm" method="get">
-        <input type="submit" class="button" value="Delete Account">
+        <input type="submit" class="button-delete" value="Delete Account">
     </form>
 
 #else
