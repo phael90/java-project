@@ -5,7 +5,6 @@
 
         <div class="select">
             <label for="user">Select User</label>
-            <br>
             <select name="user" id="user" required="true">
                 #foreach ($user in $allUsers)
                 <option value="$user.getId()">
@@ -14,28 +13,18 @@
                 #end
             </select>
         </div>
-
-        <br>
-
         <div class="title-input">
             <label for="title">Title</label>
             <br>
             <input type="text" class="inputbox" name="title" required="true" id="title">
         </div>
-
-        <br>
-
         <div class="text-input">
             <label for="description">Description</label>
             <br>
             <input type="text" class="inputbox" name="description" required="true" id="description">
         </div>
-
-        <br>
-
         <div class="select">
             <label for="category">Category</label>
-            <br>
             <select name="category" id="category" required="true">
                     #foreach ($category in $allCategories)
                     <option value="$category">
@@ -44,24 +33,11 @@
                     #end
             </select>
         </div>
-
-        <br>
-
         <div class="input-number">
             <label for="price">Price</label>
-            <br>
             <input type="number" class="inputbox" name="price" required="true" id="price">
         </div>
-
-        <br>
-
-<<<<<<< HEAD
-        <input type="submit" class="button" value="Create advert">
-=======
-        <label for="price">Price</label>
-        <input type="number" class="inputbox" name="price" required="true" id="price">
         <input type="submit" class="button-create" value="Create advert">
->>>>>>> bddd584c2ab3232d2113197684ab72137131c21b
     </form>
 </div>
 
