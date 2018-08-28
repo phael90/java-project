@@ -6,4 +6,8 @@
   background-color: black;
   color: white;
   font-size: 20px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
 }
