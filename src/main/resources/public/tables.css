@@ -1,0 +1,47 @@
+.table_scroll {
+  overflow-y: auto;
+  max-height: 500px;
+  margin-top: 10px;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  align: center;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th {
+  height: 50px;
+  font-size: 20px;
+  text-decoration: underline;
+  background-color: black;
+  color: white;
+}
+
+td {
+  height: 30px;
+  background-color: white;
+  color: black;
+}
+
+th, td {
+  padding: 3px;
+}
+
+td a {
+  display: block;
+  color: black;
+  background-color: white;
+  padding: 5px;
+}
+
+td a:hover {
+  background: black;
+  color: white;
+}
