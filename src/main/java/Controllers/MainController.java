@@ -4,10 +4,13 @@ import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import java.util.HashMap;
 import static spark.Spark.get;
+import static spark.Spark.staticFileLocation;
 
 public class MainController {
 
     public static void main(String[] args) {
+
+        staticFileLocation("/public");
 
         AdvertController advertController = new AdvertController();
         UserController userController = new UserController();
