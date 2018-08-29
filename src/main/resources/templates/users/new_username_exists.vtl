@@ -1,29 +1,35 @@
+<div class="main-user-form">
+
 <p class="heading">New User</p>
 
 <form action="/users" method="post" class="newUserForm">
 
-    <label for="username">Username:</label>
-    <input type="text" class="inputbox" name="username" required="true" id="username">
+    <div class="input-container">
+        <label for="username">Username:</label>
+        <input type="text" class="inputbox" name="username" required="true" id="username">
+    </div>
 
-    <p>That Username already exists! Please Try Another.</p>
-
-    <br>
-
-    <label for="firstName">First Name:</label>
-    <input type="text" class="inputbox" name="firstName" required="true" id="firstName">
+    <p class="error-message">That Username already exists! Please Try Another.</p>
 
     <br>
 
-    <label for="lastName">Last Name:</label>
-    <input type="text" class="inputbox" name="lastName" required="true" id="lastName">
+    <div class="input-container">
+        <label for="firstName">First Name:</label>
+        <input type="text" class="inputbox" name="firstName" required="true" id="firstName">
+    </div>
 
-    <br>
+    <div class="input-container">
+        <label for="lastName">Last Name:</label>
+        <input type="text" class="inputbox" name="lastName" required="true" id="lastName">
+    </div>
 
-    <label for="eMail">e-Mail:</label>
-    <input type="email" class="inputbox" name="eMail" required="true" id="eMail">
-
-    <br>
+    <div class="input-container">
+        <label for="eMail">e-Mail:</label>
+        <input type="email" class="inputbox" name="eMail" required="true" id="eMail">
+    </div>
 
     <input type="submit" class="button-create" value="Create User">
 
 </form>
+
+</div>

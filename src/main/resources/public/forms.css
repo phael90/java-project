@@ -30,7 +30,7 @@
 }
 
 .form-container {
-  width: 100%;
+  width: 50%;
   margin: auto;
 }
 
@@ -111,4 +111,9 @@ select {
   .filter{
     height: 45px;
     width: 100%;
+  }
+
+  .error-message {
+    color: red;
+    font-style: italic;
   }

@@ -1,36 +1,40 @@
 #if ($editingUser != $null)
 
+<div class="main-user-form">
+
     <p class="heading">Edit User Details</p>
 
     <form action="/users/$editingUser.getId()" method="post" class="editUserForm">
 
-        <label for="username">Username:</label>
-        <input type="text" class="inputbox" name="username" required="true" id="username" value="$editingUser.getUsername()">
+        <div class="input-container">
+            <label for="username">Username:</label>
+            <input type="text" class="inputbox" name="username" required="true" id="username" value="$editingUser.getUsername()">
+        </div>
 
-        <br>
+        <div class="input-container">
+            <label for="firstName">First Name:</label>
+            <input type="text" class="inputbox" name="firstName" required="true" id="firstName" value="$editingUser.getFirstName()">
+        </div>
 
-        <label for="firstName">First Name:</label>
-        <input type="text" class="inputbox" name="firstName" required="true" id="firstName" value="$editingUser.getFirstName()">
+        <div class="input-container">
+            <label for="lastName">Last Name:</label>
+            <input type="text" class="inputbox" name="lastName" required="true" id="lastName" value="$editingUser.getLastName()">
+        </div>
 
-        <br>
-
-        <label for="lastName">Last Name:</label>
-        <input type="text" class="inputbox" name="lastName" required="true" id="lastName" value="$editingUser.getLastName()">
-
-        <br>
-
-        <label for="eMail">e-Mail:</label>
-        <input type="email" class="inputbox" name="eMail" required="true" id="eMail" value="$editingUser.geteMail()">
-
-        <br>
+        <div class="input-container">
+            <label for="eMail">e-Mail:</label>
+            <input type="email" class="inputbox" name="eMail" required="true" id="eMail" value="$editingUser.geteMail()">
+        </div>
 
         <input type="submit" class="button-create" value="Update Details">
 
     </form>
 
+</div>
+
 #else
 
-    <p class="doesNotExist">This User does not exist!</p>
+    <p class="error-message">This User does not exist!</p>
 
 #end
 

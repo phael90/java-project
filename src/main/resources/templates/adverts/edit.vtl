@@ -3,28 +3,36 @@
 
     <div class="advertFormContainer">
 
-        <form class="advertForm" action="/adverts/$advert.getId()" method="post">
+        <form class="main-user-form new-advert-form" action="/adverts/$advert.getId()" method="post">
 
-            <label for="title">Title</label>
-            <input type="text" class="inputbox" name="title" required="true" id="title" value="$advert.getTitle()">
+            <div class="input-container">
+                <label for="title">Title:</label>
+                <input type="text" class="inputbox" name="title" required="true" id="title" value="$advert.getTitle()">
+            </div>
 
-            <label for="category">Category</label>
-            <select name="category" id="category" required="true">
-                #foreach ($category in $allCategories)
-                <option value="$category"
-                        #if ($advert.getCategory() == $category)
-                        selected="selected"
-                        #end >
-                    $category.getNiceName()
-                </option>
-                #end
-            </select>
+            <div class="input-container">
+            <label for="category">Category:</label>
+                <select name="category" id="category" required="true">
+                    #foreach ($category in $allCategories)
+                    <option value="$category"
+                            #if ($advert.getCategory() == $category)
+                            selected="selected"
+                            #end >
+                        $category.getNiceName()
+                    </option>
+                    #end
+                </select>
+            </div>
 
-            <label for="price">Price</label>
-            <input type="number" class="inputbox" name="price" required="true" id="price" value="$advert.getPrice()">
+            <div class="input-container">
+                <label for="price">Price:</label>
+                <input type="number" class="inputbox" name="price" required="true" id="price" value="$advert.getPrice()">
+            </div>
 
-            <label for="description">Description</label>
-            <input type="text" class="inputbox" name="description" required="true" id="description" value="$advert.getDescription()">
+            <div class="input-container">
+                <label for="description">Description:</label>
+                <input type="text" class="inputbox" name="description" required="true" id="description" value="$advert.getDescription()">
+            </div>
 
             <input type="submit" class="button-update" value="Update advert">
 
@@ -34,7 +42,7 @@
 
 #else
 
-<p class="doesNotExist">This advert does not exist!</p>
+<p class="error-message">This advert does not exist!</p>
 
 #end
 

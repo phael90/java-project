@@ -2,7 +2,8 @@
 
 <form action="/adverts/$commentingAdvert.getId()/comments" method="post">
 
-    <label for="user">Select User:</label>
+    <div class="input-container">
+    <label for="user">Select User Making Comment:</label>
     <select name="user" id="user" required="true">
         #foreach ($user in $allUsers)
         <option value="$user.getId()">
@@ -10,9 +11,12 @@
         </option>
         #end
     </select>
+    </div>
 
+    <div class="input-container">
     <label for="message">Enter Comment:</label>
-    <input type="text" name="message" class="commentBox" id="message" required="true" maxlength="300">
+    <input type="text" name="message" class="inputbox" id="message" required="true" maxlength="300">
+    </div>
 
     <input type="submit" class="button-create" value="Add Comment">
 
