@@ -88,7 +88,7 @@ select {
 
 
         height: 30px;
-        text-align: left;
+        text-align-last: center;
         display: block;
         width: 100%;
         padding: 0px 0;

@@ -19,11 +19,15 @@ header {
   text-align: center;
   line-height: 37px;
   margin-left: 34px;
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   padding-left: 10px;
   padding-right: 10px;
   border: 2px solid black;
+}
+
+.logo a {
+  color: white;
 }
 
 nav {
