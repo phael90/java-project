@@ -49,8 +49,6 @@ a button {
 }
 
 .button-create-new {
-  width: 65%;
-  height: 26px;
   font-size: 1em;
   background-color: #4CAF50;
   border-radius: 30px;

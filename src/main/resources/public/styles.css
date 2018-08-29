@@ -44,6 +44,11 @@ a:hover {
   background-size: cover;
 }
 
+.home-search-bars {
+  padding-top: 200px;
+}
+
+
 .user-details-container {
   height: 200px;
   border: 1px solid black;
