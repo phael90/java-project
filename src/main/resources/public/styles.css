@@ -66,3 +66,15 @@ a:hover {
   margin: 10px 0px;
   padding: 10px;
 }
+
+.advert-details-container {
+  padding: 10px;
+  border: 1px solid black;
+  width: 40%;
+  display: inline-block;
+  margin: 10px 0px;
+}
+
+.advert-details-container ul li {
+  list-style: none;
+}

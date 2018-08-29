@@ -2,7 +2,7 @@
 
     <p class="heading">$advert.getTitle()</p>
 
-    <div>
+    <div class="advert-details-container">
         <ul>
             <li>Title: $advert.getTitle()</li>
             <li>Description: $advert.getDescription()</li>
@@ -10,6 +10,7 @@
             <li>Price: $advert.getPrice()</li>
             <li><a href="/users/$advert.getUser().getId()">User: $advert.getUser().getUsername()</a></li>
         </ul>
+    </div>
 
         <form action="/adverts/$advert.getId()/delete" method="post">
             <input type="submit" class="button-delete" value="Delete Advert">
@@ -19,6 +20,7 @@
             <input type="submit" class="button-archive" value="Archive Advert">
         </form>
 
+            <div>
             <a class="button-edit" href="/adverts/$advert.getId()/edit">Edit Advert</a>
 
         <p>Comments</p>
@@ -31,9 +33,6 @@
                 <li>$comment.getMessage()</li>
             </ul>
         #end
-
-
-    </div>
 
 #else
 
