@@ -118,3 +118,11 @@ a:hover {
 .rating-display p:first-child {
   float: left;
 }
+
+.home-heading {
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  padding-top: 40px;
+  text-decoration: underline;
+}
