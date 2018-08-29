@@ -15,6 +15,15 @@
 
         <a class="button-user-edit" href="/users/$user.getId()/edit">Edit Details</a>
 
+
+
+        //TODO:style button and move under table or divide the table
+        <form action="/users/$user.getId()/delete/confirm" method="get">
+            <input type="submit" class="button" value="Delete Account">
+        </form>
+
+        //////////////////////////////////////////////////////////
+
     </div>
 
     <div class="user-reviews-container">
@@ -27,6 +36,13 @@
         #end
 
         <a href="/users/$user.getId()/ratings/new" class="button-user-edit">Make a Review</a>
+
+
+
+        //TODO:style button and move under table or divide the table
+        <div><a class="button" chref="/adverts/new">Create Advert</a></div>
+
+        ////////////////////////////////////////////////////////////////
 
     </div>
 
@@ -110,15 +126,6 @@
 
 </div>
 
-<div class="bottom-buttons">
-
-    <form action="/users/$user.getId()/delete/confirm" method="get">
-        <input type="submit" class="button" value="Delete Account">
-    </form>
-
-    <div class="button"><a chref="/adverts/new">Create Advert</a></div>
-
-</div>
 #else
 
 <p class="doesNotExist">This User does not exist!</p>
