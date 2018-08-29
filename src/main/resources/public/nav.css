@@ -8,16 +8,22 @@ header {
   top: 0;
 }
 
+
 .logo {
   max-height: 50px;
   width: auto;
   padding: 0;
-  min-height: 48px;
+  min-height: 36px;
   display: block;
   float: left;
   text-align: center;
-  line-height: 48px;
+  line-height: 37px;
   margin-left: 34px;
+  background-color: white;
+  color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid black;
 }
 
 nav {
@@ -26,6 +32,7 @@ nav {
   max-height: 50px;
   padding: 0;
   min-height: 46px;
+  background-color: black;
 }
 
  nav ul {
@@ -41,7 +48,7 @@ nav {
 }
 
 nav li a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
