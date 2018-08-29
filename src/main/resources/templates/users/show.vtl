@@ -39,37 +39,6 @@
 
     #else
 
-        <p class="sub-heading">Current Adverts</p>
-
-        <table>
-
-            <tr>
-                <th>Title</th>
-                <th>Category</th>
-                <th>Price</th>
-            </tr>
-
-            #foreach ($advert in $userActiveAdverts)
-                <tr>
-                    <td>$advert.getTitle()</td>
-                    <td>$advert.getCategory().getNiceName()</td>
-                    <td>$advert.getPrice()</td>
-                    <td>
-                        <form action="/adverts/$advert.getId()/delete/by_user/$user.getId()" method="post">
-                            <input type="submit" class="button-delete" value="Delete Ad">
-                        </form>
-                    </td>
-                    <td>
-                        <form action="/adverts/$advert.getId()/archive/by_user/$user.getId()" method="post">
-                            <input type="submit" class="button-archive" value="Archive Ad">
-                        </form>
-                    </td>
-                </tr>
-            #end
-
-        </table>
-    #else
-
     <p class="sub-heading">Current Adverts</p>
 
     <table>
@@ -143,11 +112,11 @@
 
 <div class="bottom-buttons">
 
-<form action="/users/$user.getId()/delete/confirm" method="get">
-    <input type="submit" class="button" value="Delete Account">
-</form>
+    <form action="/users/$user.getId()/delete/confirm" method="get">
+        <input type="submit" class="button" value="Delete Account">
+    </form>
 
-<div class="button"><a chref="/adverts/new">Create Advert</a></div>
+    <div class="button"><a chref="/adverts/new">Create Advert</a></div>
 
 </div>
 #else
@@ -156,4 +125,5 @@
 
 
 #end
+
 
