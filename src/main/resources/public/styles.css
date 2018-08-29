@@ -48,18 +48,39 @@ a:hover {
   padding-top: 200px;
 }
 
-
-.user-details-container {
-  height: 200px;
-  border: 1px solid black;
-  width: 40%;
-  display: inline-block;
-  margin: 10px 0px;
-  padding: 10px;
+.user-container{
+  height: 350px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: -74%;
+  background-color: rgb(80 80 80);
 }
 
 .user-details-container ul li {
   list-style: none;
+}
+
+.user-details-container {
+  height: 270px;
+  background: rgb(255 255 255);
+  padding: 39px 0px 0px 0px;
+  margin-top: 3%;
+  width: 40%;
+  display: inline-block;
+
+  border-radius: 4px;
+}
+
+.user-reviews-container{
+  height: 270px;
+  background: rgb(255 255 255);
+  padding: 39px 0px 0px 0px;
+  margin-top: 3%;
+  width: 40%;
+  display: inline-block;
+  float: right;
+  border-radius: 4px;
 }
 
 .advert-details-container {
@@ -92,4 +113,8 @@ a:hover {
   margin-top: 50px;
   padding: 20px;
   border: 5px solid red;
+}
+
+.rating-display p:first-child {
+  float: left;
 }

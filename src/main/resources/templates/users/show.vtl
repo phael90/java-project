@@ -14,39 +14,33 @@
         </ul>
 
         <a class="button-user-edit" href="/users/$user.getId()/edit">Edit Details</a>
-
-
-
-        //TODO:style button and move under table or divide the table
-        <form action="/users/$user.getId()/delete/confirm" method="get">
-            <input type="submit" class="button" value="Delete Account">
-        </form>
-
-        //////////////////////////////////////////////////////////
-
     </div>
 
     <div class="user-reviews-container">
 
         #if ($averageRating != $null)
-        <p>Average Rating:</p>
-        <p><a href="/users/$user.getId()/ratings">$averageRating</a></p>
+
+
+            <p>Average Rating: <a href="/users/$user.getId()/ratings">$averageRating</a></p>
+
         #else
         <p>No Reviews have been made about this user!</p>
         #end
 
         <a href="/users/$user.getId()/ratings/new" class="button-user-edit">Make a Review</a>
 
-
-
-        //TODO:style button and move under table or divide the table
-        <div><a class="button" chref="/adverts/new">Create Advert</a></div>
-
-        ////////////////////////////////////////////////////////////////
-
     </div>
 
 </div>
+
+<div class="user-buttons-container">
+    <form action="/users/$user.getId()/delete/confirm" method="get">
+        <input type="submit" class="button-container" value="Delete Account">
+    </form>
+<div><a class="button-container" chref="/adverts/new">Create Advert</a></div>
+
+</div>
+
 <div class="activeAdverts">
 
     #if ($userActiveAdverts.size() == 0)
