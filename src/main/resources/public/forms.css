@@ -40,15 +40,12 @@
 
 .new-user-form {
   width: 100%;
-  justify-content: space-around;
   align-items: center;
   text-align: center;
   grid-gap: 7px;
   border: 1px;
   outline: none;
-  width: 100%;
-  margin: 20px 0;
-  border: none;
+  border: 1px, solid black;
 }
 
 .new-advert-form{
@@ -65,7 +62,7 @@
 
 .input-container {
   width: 67%;
-  margin-left:
+  margin: auto;
 }
 
 .inputbox {
@@ -84,11 +81,11 @@
   border: none;
   border-bottom: 3px solid black;}
 
-  .main{
+  .main-user-form{
     margin: auto;
     margin-top: 2%;
-    height: 40vh;
-    width: 40%;
+    height: 65vh;
+    width: 52%;
   }
 
   .filter{
