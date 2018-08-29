@@ -4,14 +4,15 @@
 
     #foreach ($category in $allCategories)
 
-    <a class="category-button" href="/adverts/category/$category">$category.getNiceName()</a>
+        <a class="category-button" href="/adverts/category/$category">$category.getNiceName()</a>
+
     #end
 
 </div>
 
-    <form class="form-container" action="/adverts" method="get">
-        <input class="search-adverts" type="search" name="search" placeholder="Search Adverts...">
-    </form>
+<form class="form-container" action="/adverts" method="get" autocomplete="off">
+    <input class="search-adverts" type="search" name="search" placeholder="Search Adverts...">
+</form>
 
 <form class="form-container" action="/adverts" method="get">
     <label for="sort">Sort By:</label>
@@ -25,9 +26,12 @@
     <input class="button-sort" type="submit" value="Click to Sort">
 </form>
 
-<div class="button-update"><a href="/adverts/new">Add advert</a></div>
+<div class="button-update">
+    <a href="/adverts/new">Add advert</a>
+</div>
 
 <div class="advertContainer">
+
     <table>
         <tr>
             <th>Title</th>
@@ -49,12 +53,13 @@
         #else
 
             #foreach ($advert in $allAdverts)
-            <tr>
-                <td><a href="/adverts/$advert.getId()">
-                    $advert.getTitle()</a></td>
-                <td>$advert.getCategory().getNiceName()</td>
-                <td>$advert.getPrice()</td>
-            </tr>
+
+                <tr>
+                    <td><a href="/adverts/$advert.getId()">
+                        $advert.getTitle()</a></td>
+                    <td>$advert.getCategory().getNiceName()</td>
+                    <td>$advert.getPrice()</td>
+                </tr>
 
             #end
 

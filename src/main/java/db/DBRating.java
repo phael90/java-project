@@ -14,14 +14,14 @@ public class DBRating {
 
     private static Session session;
 
-    public static List<Rating> getAllRatingsReceivedByUser(User user){
+    public static List<Rating> getAllRatingsReceivedByUser(User user) {
         session = HibernateUtil.getSessionFactory().openSession();
         List<Rating> results = null;
         try {
             Criteria cr = session.createCriteria(Rating.class);
             cr.add(Restrictions.eq("ratee", user));
             results = cr.list();
-        } catch(HibernateException e) {
+        } catch (HibernateException e) {
             e.printStackTrace();
         } finally {
             session.close();
@@ -29,14 +29,14 @@ public class DBRating {
         return results;
     }
 
-    public static List<Rating> getAllRatingsMadeByUser(User user){
+    public static List<Rating> getAllRatingsMadeByUser(User user) {
         session = HibernateUtil.getSessionFactory().openSession();
         List<Rating> results = null;
         try {
             Criteria cr = session.createCriteria(Rating.class);
             cr.add(Restrictions.eq("rater", user));
             results = cr.list();
-        } catch(HibernateException e) {
+        } catch (HibernateException e) {
             e.printStackTrace();
         } finally {
             session.close();

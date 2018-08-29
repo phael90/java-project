@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User { 
+public class User {
 
     private int id;
     private String username;
@@ -124,12 +124,12 @@ public class User {
         this.ratingsReceived = ratingsReceived;
     }
 
-    public Double calculateAverageRatingReceived(){
+    public Double calculateAverageRatingReceived() {
         List<Rating> ratingsReceived = DBRating.getAllRatingsReceivedByUser(this);
         this.setRatingsReceived(ratingsReceived);
 
         double sumOfRatings = 0;
-        for (Rating rating : ratingsReceived){
+        for (Rating rating : ratingsReceived) {
             double ratingNumber = rating.getValue().getRatingNumber();
             sumOfRatings += ratingNumber;
         }

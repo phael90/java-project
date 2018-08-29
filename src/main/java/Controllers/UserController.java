@@ -19,7 +19,7 @@ public class UserController {
         setUpRoutes();
     }
 
-    public static void setUpRoutes(){
+    public static void setUpRoutes() {
 
         //    INDEX
         get("/users", (req, res) -> {
@@ -34,7 +34,7 @@ public class UserController {
             model.put("searchResults", searchResults);
             model.put("template", "templates/users/index.vtl");
 
-            if (searchEntry != null && searchResults.size() == 0){
+            if (searchEntry != null && searchResults.size() == 0) {
                 model.put("template", "templates/users/indexSearchNotFound.vtl");
             } else {
                 model.put("template", "templates/users/index.vtl");
@@ -66,7 +66,7 @@ public class UserController {
 
         }, new VelocityTemplateEngine());
 
-        
+
         //    CREATE
         post("/users", (req, res) -> {
 

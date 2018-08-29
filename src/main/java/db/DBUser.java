@@ -79,15 +79,15 @@ public class DBUser {
         return results;
     }
 
-    public static Double calculateAverageRatingForUser(User user){
+    public static Double calculateAverageRatingForUser(User user) {
         List<Rating> userRatingsReceived = DBRating.getAllRatingsReceivedByUser(user);
         user.setRatingsReceived(userRatingsReceived);
         return user.calculateAverageRatingReceived();
     }
 
-    public static Boolean doesUserNameExist(String username){
+    public static Boolean doesUserNameExist(String username) {
         List<User> allUsers = DBHelper.getAll(User.class);
-        for (User user : allUsers){
+        for (User user : allUsers) {
             if (user.getUsername().equals(username)) {
                 return true;
             }

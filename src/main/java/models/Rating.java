@@ -12,11 +12,11 @@ public class Rating {
     private RatingValue value;
     private String message;
 
-    public Rating(){
+    public Rating() {
 
     }
 
-    public Rating(User rater, User ratee, RatingValue value, String message){
+    public Rating(User rater, User ratee, RatingValue value, String message) {
         this.rater = rater;
         this.ratee = ratee;
         this.value = value;

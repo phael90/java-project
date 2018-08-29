@@ -19,7 +19,7 @@ public class Advert {
     private Boolean archived;
     private List<Comment> comments;
 
-    public Advert(String title, String description, Category category, double price, User user){
+    public Advert(String title, String description, Category category, double price, User user) {
         this.title = title;
         this.description = description;
         this.category = category;
@@ -29,7 +29,8 @@ public class Advert {
         this.comments = new ArrayList<>();
     }
 
-    public Advert(){}
+    public Advert() {
+    }
 
     @Id
     @GeneratedValue
@@ -51,7 +52,7 @@ public class Advert {
         this.title = title;
     }
 
-    @Column(name  = "description")
+    @Column(name = "description")
     public String getDescription() {
         return description;
     }
@@ -70,7 +71,7 @@ public class Advert {
         this.category = category;
     }
 
-    @Column(name  = "price")
+    @Column(name = "price")
     public double getPrice() {
         return price;
     }
@@ -108,7 +109,7 @@ public class Advert {
         this.comments = comments;
     }
 
-    public void archive(){
+    public void archive() {
         this.archived = true;
     }
 
