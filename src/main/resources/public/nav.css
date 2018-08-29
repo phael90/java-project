@@ -1,5 +1,4 @@
-header
-{
+header {
   margin-left: auto;
   margin-right: auto;
   position: fixed;
@@ -9,8 +8,7 @@ header
   top: 0;
 }
 
-.logo
-{
+.logo {
   max-height: 50px;
   width: auto;
   padding: 0;
@@ -22,8 +20,7 @@ header
   margin-left: 34px;
 }
 
-nav
-{
+nav {
   width: auto;
   min-width: 500px;
   max-height: 50px;
@@ -31,8 +28,7 @@ nav
   min-height: 46px;
 }
 
- nav ul
-{
+ nav ul {
   list-style: none;
   width: auto;
   min-width: 500px;

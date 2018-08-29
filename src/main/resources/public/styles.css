@@ -45,6 +45,7 @@ a:hover {
 }
 
 .user-details-container {
+  height: 200px;
   border: 1px solid black;
   width: 40%;
   display: inline-block;
@@ -58,6 +59,7 @@ a:hover {
 
 
 .user-reviews-container {
+  height: 200px;
   border: 1px solid black;
   width: 40%;
   display: inline-block;
