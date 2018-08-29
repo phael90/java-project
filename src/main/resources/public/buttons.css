@@ -24,6 +24,19 @@ a button {
   cursor: pointer;
 }
 
+.button-user-edit{
+  width: 160px;
+  height: 50px;;
+  font-size: 0.9em;
+  border-radius: 30px;
+  padding: 10px 32px 10px 32px;
+  text-decoration: none;
+  margin: auto;
+  cursor: pointer;
+  background-color: rgb:(194, 194, 194;);
+
+}
+
 .button-create {
   width: 167px;
   height: 26px;
