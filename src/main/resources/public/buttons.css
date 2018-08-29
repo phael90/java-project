@@ -22,7 +22,6 @@ a button {
   text-decoration: none;
   margin: auto;
   cursor: pointer;
-  width: 30%;
 }
 
 .button-user-edit{
@@ -34,7 +33,7 @@ a button {
   text-decoration: none;
   margin: auto;
   cursor: pointer;
-  background-color: rgb:(194, 194, 194;);
+  background-color: #
 
 }
 
@@ -49,7 +48,6 @@ a button {
   margin: 4px 4px;
   cursor: pointer;
   align-self: center;
-  width: 30%;
 }
 
 .button-create-new {
@@ -63,8 +61,8 @@ a button {
   margin: 4px 4px;
   cursor: pointer;
   align-self: center;
-  width: 30%;
 }
+
 
 .button-update {
   font-size: 1em;
@@ -75,7 +73,6 @@ a button {
   margin: 4px 4px;
   cursor: pointer;
   align-self: center;
-  width: 30%;
 }
 
 .button-delete {
@@ -87,7 +84,6 @@ a button {
   margin: 4px 4px;
   cursor: pointer;
   align-self: center;
-  width: 30%;
 }
 
 .button-edit {
@@ -99,8 +95,6 @@ a button {
   margin: 4px 4px;
   cursor: pointer;
   align-self: center;
-  display: inline-block;
-  width: 30%;
 }
 
 .button-archive {
@@ -112,7 +106,6 @@ a button {
   margin: 4px 4px;
   cursor: pointer;
   align-self: center;
-  width: 30%;
 }
 
 .button-return {
@@ -124,7 +117,6 @@ a button {
   margin: 4px 4px;
   cursor: pointer;
   align-self: center;
-  width: 30%;
 }
 
 .category-buttons{
