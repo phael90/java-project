@@ -9,21 +9,23 @@
 
 </div>
 
-    <form class="form-container" action="/adverts" method="get" class="search">
+    <form class="form-container" action="/adverts" method="get">
         <input class="search-adverts" type="search" name="search" placeholder="Search Adverts...">
     </form>
 
-<form class="form-container" action="/adverts" method="get" class="filter">
+<form class="form-container" action="/adverts" method="get">
     <label for="sort">Sort By:</label>
     <select name="sort" id="sort">
         <option disabled selected value> -- select -- </option>
-        <option value="High to Low">Price High to Low</option>
+        <option value="High to Low">Price High to <Lo></Lo>w</option>
         <option value="Low to High">Price Low to High</option>
         <option value="Category A to Z">Category A to Z</option>
         <option value="Title A to Z">Title A to Z</option>
     </select>
     <input class="button-sort" type="submit" value="Click to Sort">
 </form>
+
+<div class="button-update"><a href="/adverts/new">Add advert</a></div>
 
 <div class="advertContainer">
     <table>
@@ -61,7 +63,6 @@
     </table>
 
 </div>
-<div class="button-update"><a href="/adverts/new">Add advert</a></div>
 
 
 

@@ -1,6 +1,7 @@
-<div>
 
-    <p>Are you sure you want to delete $deletingUser.getUsername()? This will wipe all data relating to this user account.</p>
+<div class="confirm-delete-container">
+
+    <p class="error-message">Are you sure you want to delete $deletingUser.getUsername()? This will wipe all data relating to this user account.</p>
 
     <form action="/users/$deletingUser.getId()/delete" method="post">
         <input type="submit" class="button-delete" value="Delete">

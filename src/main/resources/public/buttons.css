@@ -69,6 +69,7 @@ a button {
   margin: 4px 4px;
   cursor: pointer;
   align-self: center;
+  display: inline-block;
 }
 
 .button-delete {
@@ -91,6 +92,7 @@ a button {
   margin: 4px 4px;
   cursor: pointer;
   align-self: center;
+  display: inline-block;
 }
 
 .button-archive {
@@ -113,6 +115,7 @@ a button {
   margin: 4px 4px;
   cursor: pointer;
   align-self: center;
+  display: inline-block;
 }
 
 .category-buttons{

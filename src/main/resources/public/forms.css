@@ -32,6 +32,7 @@
 .form-container {
   width: 50%;
   margin: auto;
+  margin-top: 10px;
 }
 
 .search-container{
@@ -92,7 +93,8 @@ select {
         width: 100%;
         padding: 0px 0;
         font-size: 16px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+        margin-top: 20px;
         border: 1px;
         outline: none;
         background: transparent;
@@ -116,4 +118,5 @@ select {
   .error-message {
     color: red;
     font-style: italic;
+    padding: 10px;
   }

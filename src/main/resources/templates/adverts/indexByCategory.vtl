@@ -10,13 +10,11 @@
 
 </div>
 
-<div class="search">
-    <form action="/adverts" method="get">
+    <form action="/adverts" method="get" class="form-container">
         <input class="search-adverts" type="search" name="search" placeholder="Search Adverts...">
     </form>
-</div>
 
-<form action="/adverts/category/$category" method="get" class="filter">
+<form action="/adverts/category/$category" method="get" class="form-container">
 
     <label for="sort">Sort By:</label>
     <select name="sort" id="sort">
@@ -29,11 +27,13 @@
     <input class="button-sort" type="submit" value="Click to Sort">
 </form>
 
+<div class="button-update"><a href="/adverts/new">Add advert</a></div>
+
 <div class="advertContainer" >
 
     #if ($allCategoryAdverts.size() == 0)
 
-        <p>There are no adverts in $category.getNiceName().</p>
+        <p class="error-message">There are no adverts in $category.getNiceName().</p>
 
     #else
 
@@ -60,4 +60,3 @@
 
 </div>
 
-<div class="button-update"><a href="/adverts/new">Add advert</a></div>
