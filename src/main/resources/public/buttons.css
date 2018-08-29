@@ -38,8 +38,6 @@ a button {
 }
 
 .button-create {
-  width: 167px;
-  height: 26px;
   font-size: 1em;
   background-color: #4CAF50;
   border-radius: 30px;
