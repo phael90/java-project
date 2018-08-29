@@ -18,14 +18,14 @@ import static spark.Spark.post;
 
 public class AdvertController {
 
-    public AdvertController(){
+    public AdvertController() {
         setUpRoutes();
     }
 
     public static void setUpRoutes() {
 
         //INDEX
-        get("/adverts", (req, res) ->{
+        get("/adverts", (req, res) -> {
 
             Category[] allCategories = Category.values();
             List<Advert> allAdverts;
@@ -54,7 +54,7 @@ public class AdvertController {
             model.put("allCategories", allCategories);
             model.put("searchResults", searchResults);
 
-            if (searchEntry != null && searchResults.size() == 0){
+            if (searchEntry != null && searchResults.size() == 0) {
                 model.put("template", "templates/adverts/indexSearchNotFound.vtl");
             } else {
                 model.put("template", "templates/adverts/index.vtl");
@@ -65,7 +65,7 @@ public class AdvertController {
 
 
         //INDEX WHEN SEARCH NOT FOUND
-        get("/adverts/search_not_found", (req, res) ->{
+        get("/adverts/search_not_found", (req, res) -> {
 
             HashMap<String, Object> model = new HashMap<>();
             model.put("template", "templates/adverts/index.vtl");
@@ -88,7 +88,8 @@ public class AdvertController {
             String sort = req.queryParams("sort");
 
             if (sort == null) {
-                allCategoryAdverts = DBAdvert.getAllAdvertsByCategory(category);;
+                allCategoryAdverts = DBAdvert.getAllAdvertsByCategory(category);
+                ;
             } else if (sort.equals("High to Low")) {
                 allCategoryAdverts = DBAdvert.getAllActiveAdvertsDescendingPriceCategory(category);
             } else if (sort.equals("Low to High")) {
@@ -110,7 +111,6 @@ public class AdvertController {
         }, new VelocityTemplateEngine());
 
 
-
         //NEW
 
         get("/adverts/new", (req, res) -> {
@@ -128,7 +128,7 @@ public class AdvertController {
 
         //CREATE
 
-        post("/adverts", (req, res) ->{
+        post("/adverts", (req, res) -> {
             int user_id = Integer.parseInt(req.queryParams("user"));
             User user = DBHelper.findById(User.class, user_id);
 
@@ -147,7 +147,7 @@ public class AdvertController {
 
         //SHOW
 
-        get("/adverts/:id", (req, res) ->{
+        get("/adverts/:id", (req, res) -> {
             int advertId = Integer.parseInt(req.params(":id"));
             Advert advert = DBHelper.findById(Advert.class, advertId);
 
@@ -163,7 +163,7 @@ public class AdvertController {
 
         //EDIT
 
-        get("/adverts/:id/edit", (req, res) ->{
+        get("/adverts/:id/edit", (req, res) -> {
             int advertId = Integer.parseInt(req.params(":id"));
             Advert advert = DBHelper.findById(Advert.class, advertId);
 
@@ -179,7 +179,7 @@ public class AdvertController {
 
         //UPDATE
 
-        post("adverts/:id", (req, res) ->{
+        post("adverts/:id", (req, res) -> {
 
             int advertId = Integer.parseInt(req.params(":id"));
             Advert advert = DBHelper.findById(Advert.class, advertId);
@@ -201,7 +201,7 @@ public class AdvertController {
 
         //DELETE
 
-        post("adverts/:id/delete", (req, res) ->{
+        post("adverts/:id/delete", (req, res) -> {
             int advertId = Integer.parseInt(req.params(":id"));
             Advert advert = DBHelper.findById(Advert.class, advertId);
 
@@ -213,7 +213,7 @@ public class AdvertController {
 
 //        DELETE ON USER PAGE
 
-        post("adverts/:id/delete/by_user/:userid", (req, res) ->{
+        post("adverts/:id/delete/by_user/:userid", (req, res) -> {
 
             int advertId = Integer.parseInt(req.params(":id"));
             Advert advert = DBHelper.findById(Advert.class, advertId);
@@ -228,7 +228,7 @@ public class AdvertController {
 
 //        ARCHIVE ON USER PAGE
 
-        post("adverts/:id/archive/by_user/:userid", (req, res) ->{
+        post("adverts/:id/archive/by_user/:userid", (req, res) -> {
 
             int advertId = Integer.parseInt(req.params(":id"));
             Advert advert = DBHelper.findById(Advert.class, advertId);
@@ -239,7 +239,7 @@ public class AdvertController {
         });
 
 //        ARCHIVE ON ADVERT PAGE
-        post("adverts/:id/archive", (req, res) ->{
+        post("adverts/:id/archive", (req, res) -> {
             int advertId = Integer.parseInt(req.params(":id"));
             Advert advert = DBHelper.findById(Advert.class, advertId);
             DBAdvert.archiveAdvert(advert);

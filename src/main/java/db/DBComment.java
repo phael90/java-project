@@ -14,14 +14,14 @@ public class DBComment {
 
     private static Session session;
 
-    public static List<Comment> getAllCommentsForAdvert(Advert advert){
+    public static List<Comment> getAllCommentsForAdvert(Advert advert) {
         session = HibernateUtil.getSessionFactory().openSession();
         List<Comment> results = null;
         try {
             Criteria cr = session.createCriteria(Comment.class);
             cr.add(Restrictions.eq("advert", advert));
             results = cr.list();
-        } catch(HibernateException e) {
+        } catch (HibernateException e) {
             e.printStackTrace();
         } finally {
             session.close();
@@ -29,14 +29,14 @@ public class DBComment {
         return results;
     }
 
-    public static List<Comment> getAllCommentsByUser(User user){
+    public static List<Comment> getAllCommentsByUser(User user) {
         session = HibernateUtil.getSessionFactory().openSession();
         List<Comment> results = null;
         try {
             Criteria cr = session.createCriteria(Comment.class);
             cr.add(Restrictions.eq("user", user));
             results = cr.list();
-        } catch(HibernateException e) {
+        } catch (HibernateException e) {
             e.printStackTrace();
         } finally {
             session.close();

@@ -16,10 +16,11 @@ import static spark.Spark.post;
 
 public class RatingsController {
 
-    public RatingsController(){ setUpRoutes();
+    public RatingsController() {
+        setUpRoutes();
     }
 
-    public static void setUpRoutes(){
+    public static void setUpRoutes() {
 
 //        INDEX BY USER
         get("/users/:id/ratings", (req, res) -> {

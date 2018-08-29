@@ -143,5 +143,5 @@ public class Runner {
         List<Advert> getAdvertsSortedByCategoryAtoZ = DBAdvert.getAllActiveAdvertsSortedByCategoryAtoZ();
 
     }
-    
+
 }

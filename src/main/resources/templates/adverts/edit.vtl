@@ -1,4 +1,7 @@
-<div class="heading"><p>Advert Form</p></div>
+<div class="heading">
+    <p>Advert Form</p>
+</div>
+
 #if ($advert != $null)
 
     <div class="advertFormContainer">
@@ -42,9 +45,6 @@
 
 #else
 
-<p class="error-message">This advert does not exist!</p>
+    <p class="error-message">This advert does not exist!</p>
 
 #end
-
-
-<!--<option value="<%=nationality%>" <%= 'selected' if @tenant.nationality == nationality%>><%=nationality%></option>-->

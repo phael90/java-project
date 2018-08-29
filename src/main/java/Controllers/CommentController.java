@@ -13,14 +13,13 @@ import java.util.List;
 import static spark.Spark.get;
 import static spark.Spark.post;
 
-
 public class CommentController {
 
     public CommentController() {
         setUpRoutes();
     }
 
-    public static void setUpRoutes(){
+    public static void setUpRoutes() {
 
 //        NEW
         get("/adverts/:id/comments/new", (req, res) -> {

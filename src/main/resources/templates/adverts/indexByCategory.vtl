@@ -3,16 +3,18 @@
 <div class="category-buttons">
 
     #foreach ($category in $allCategories)
-    <a class="category-button" href="/adverts/category/$category">$category.getNiceName()</a>
+
+        <a class="category-button" href="/adverts/category/$category">$category.getNiceName()</a>
+
     #end
 
     <a class="category-button" href="/adverts">All Adverts</a>
 
 </div>
 
-    <form action="/adverts" method="get" class="form-container">
-        <input class="search-adverts" type="search" name="search" placeholder="Search Adverts...">
-    </form>
+<form action="/adverts" method="get" class="form-container">
+    <input class="search-adverts" type="search" name="search" placeholder="Search Adverts...">
+</form>
 
 <form action="/adverts/category/$category" method="get" class="form-container">
 
@@ -25,9 +27,12 @@
 
     </select>
     <input class="button-sort" type="submit" value="Click to Sort">
+
 </form>
 
-<div class="button-update"><a href="/adverts/new">Add advert</a></div>
+<div class="button-update">
+    <a href="/adverts/new">Add advert</a>
+</div>
 
 <div class="advertContainer" >
 

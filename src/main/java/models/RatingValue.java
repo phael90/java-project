@@ -9,7 +9,7 @@ public enum RatingValue {
 
     private int ratingNumber;
 
-    RatingValue(int ratingNumber){
+    RatingValue(int ratingNumber) {
         this.ratingNumber = ratingNumber;
     }
 
