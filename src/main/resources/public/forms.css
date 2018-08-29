@@ -63,6 +63,7 @@
 .input-container {
   width: 67%;
   margin: auto;
+  text-align: left;
 }
 
 .inputbox {
@@ -79,7 +80,26 @@
   background: transparent;
   background: rgba(0 ,0, 0, 0);
   border: none;
-  border-bottom: 3px solid black;}
+  border-bottom: 3px solid black;
+  }
+
+select {
+
+
+        height: 30px;
+        text-align: left;
+        display: block;
+        width: 100%;
+        padding: 0px 0;
+        font-size: 16px;
+        margin-bottom: 30px;
+        border: 1px;
+        outline: none;
+        background: transparent;
+        background: rgba(0 ,0, 0, 0);
+        border: 3px solid black;
+
+}
 
   .main-user-form{
     margin: auto;

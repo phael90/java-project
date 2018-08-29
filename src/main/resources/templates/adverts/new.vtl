@@ -1,9 +1,9 @@
 <p class="heading">Advert Form</p>
 
 <div>
-    <form class="new-advert-form" action="/adverts" method="post">
+    <form class="main-user-form new-advert-form" action="/adverts" method="post">
 
-        <div class="select">
+        <div class="input-container">
             <label for="user">Select User</label>
             <select name="user" id="user" required="true">
                 #foreach ($user in $allUsers)
@@ -13,28 +13,30 @@
                 #end
             </select>
         </div>
-        <div class="title-input">
+
+
+        <div class="input-container">
+            <label for="category">Category</label>
+            <select name="category" id="category" required="true">
+                #foreach ($category in $allCategories)
+                <option value="$category">
+                    $category.getNiceName()
+                </option>
+                #end
+            </select>
+        </div>
+
+        <div class="input-container">
             <label for="title">Title</label>
-            <br>
             <input type="text" class="inputbox" name="title" required="true" id="title">
         </div>
 
-        <div class="select">
-            <label for="category">Category</label>
-            <select name="category" id="category" required="true">
-                    #foreach ($category in $allCategories)
-                    <option value="$category">
-                        $category.getNiceName()
-                    </option>
-                    #end
-            </select>
-        </div>
-        <div class="input-number">
+        <div class="input-container">
             <label for="price">Price</label>
             <input type="number" class="inputbox" name="price" required="true" id="price">
         </div>
 
-        <div class="text-input">
+        <div class="input-container">
             <label for="description">Description</label>
             <br>
             <input type="text" class="inputbox" name="description" required="true" id="description">
