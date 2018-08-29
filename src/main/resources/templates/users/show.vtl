@@ -4,31 +4,31 @@
 
 <div class="user-container">
 
-<div class="user-details-container">
+    <div class="user-details-container">
 
-    <ul>
-        <li>Username: $user.getUsername()</li>
-        <li>First Name: $user.getFirstName()</li>
-        <li>Last Name: $user.getLastName()</li>
-        <li>e-Mail: $user.geteMail()</li>
-    </ul>
+        <ul>
+            <li>Username: $user.getUsername()</li>
+            <li>First Name: $user.getFirstName()</li>
+            <li>Last Name: $user.getLastName()</li>
+            <li>e-Mail: $user.geteMail()</li>
+        </ul>
 
-    <a class="button-user-edit" href="/users/$user.getId()/edit">Edit Details</a>
+        <a class="button-user-edit" href="/users/$user.getId()/edit">Edit Details</a>
 
-</div>
+    </div>
 
-<div class="user-reviews-container">
+    <div class="user-reviews-container">
 
-    #if ($averageRating != $null)
-    <p>Average Rating:</p>
-    <p><a href="/users/$user.getId()/ratings">$averageRating</a></p>
-    #else
-    <p>No Reviews have been made about this user!</p>
-    #end
+        #if ($averageRating != $null)
+        <p>Average Rating:</p>
+        <p><a href="/users/$user.getId()/ratings">$averageRating</a></p>
+        #else
+        <p>No Reviews have been made about this user!</p>
+        #end
 
-    <a href="/users/$user.getId()/ratings/new" class="button-user-edit">Make a Review</a>
+        <a href="/users/$user.getId()/ratings/new" class="button-user-edit">Make a Review</a>
 
-</div>
+    </div>
 
 </div>
 <div class="activeAdverts">
@@ -71,8 +71,6 @@
 
     #end
 
-    <a class="button-create" href="/adverts/new">Create Advert</a>
-
 </div>
 
 <div class="archivedAdverts">
@@ -100,7 +98,7 @@
             <td>$advert.getPrice()</td>
             <td>
                 <form action="/adverts/$advert.getId()/delete/by_user/$user.getId()" method="post">
-                    <input type="submit" class="button-delete" value="Delete">
+                    <input type="submit" class="button-delete" value="Delete Advert">
                 </form>
             </td>
         </tr>
@@ -112,10 +110,15 @@
 
 </div>
 
+<div class="bottom-buttons">
+
 <form action="/users/$user.getId()/delete/confirm" method="get">
-    <input type="submit" class="button-delete" value="Delete Account">
+    <input type="submit" class="button" value="Delete Account">
 </form>
 
+<div class="button"><a chref="/adverts/new">Create Advert</a></div>
+
+</div>
 #else
 
 <p class="doesNotExist">This User does not exist!</p>
