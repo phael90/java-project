@@ -13,32 +13,20 @@ a button {
   cursor: pointer;
 }
 
-/*.button:hover {
-  opacity: 0.9;
-}
-
-.button-small {
-  width: 90px;
-  height: 40px;;
-  font-size: 0.8em;
+.button-sort{
+  width: 167px;
+  height: 36px;
+  font-size: 0.9em;
   border-radius: 30px;
-  color: white;
+  padding: 10px 32px 10px 32px;
   text-decoration: none;
-  margin: 4px 4px;
+  margin: auto;
   cursor: pointer;
 }
 
-.button-small:hover {
-  opacity: 0.9;
-}
-
-.button-get-started a {
-  color: black;
-  font-family: Helvetica, Arial, sans-serif;
-  text-decoration: none;
-}
-*/
 .button-create {
+  width: 167px;
+  height: 26px;
   font-size: 1em;
   background-color: #4CAF50;
   border-radius: 30px;
@@ -49,6 +37,18 @@ a button {
   align-self: center;
 }
 
+.button-create-new {
+  width: 65%;
+  height: 26px;
+  font-size: 1em;
+  background-color: #4CAF50;
+  border-radius: 30px;
+  padding: 15px 32px 15px 32px;
+  text-decoration: none;
+  margin: 4px 4px;
+  cursor: pointer;
+  align-self: center;
+}
 
 .button-update {
   font-size: 1em;

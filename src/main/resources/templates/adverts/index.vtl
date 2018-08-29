@@ -14,20 +14,16 @@
     </form>
 
 <form action="/adverts" method="get" class="filter">
-
     <label for="sort">Sort By:</label>
     <select name="sort" id="sort">
         <option disabled selected value> -- select -- </option>
-        <option value="High to Low">Price High to Low</option>
+        <option High to Low">Price High to Low</option>
         <option value="Low to High">Price Low to High</option>
         <option value="Category A to Z">Category A to Z</option>
         <option value="Title A to Z">Title A to Z</option>
     </select>
-
-    <input type="submit" value="Sort">
+    <input class="button-sort" type="text" value="Click to Sort">
 </form>
-
-<a class="button-create" href="/adverts/new">Add advert</a>
 
 <div class="advertContainer">
     <table>
@@ -65,5 +61,8 @@
     </table>
 
 </div>
+<div class="button-update"><a href="/adverts/new">Add advert</a></div>
+
+
 
 

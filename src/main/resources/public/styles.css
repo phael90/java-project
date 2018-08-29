@@ -15,11 +15,6 @@ a:hover {
   text-decoration: underline;
 }
 
-.container{
-  background-image: url("image/desert2.jpg");
-  background-position: center;
-}
-
 .heading {
   padding: 20px;
   width: 100%;
