@@ -14,21 +14,21 @@ table {
 }
 
 table, th, td {
-  border: 1px solid black;
+  border: 1px solid #333333;
 }
 
 th {
   height: 50px;
   font-size: 20px;
   text-decoration: underline;
-  background-color: black;
+  background-color: #333333;
   color: white;
 }
 
 td {
   height: 30px;
   background-color: white;
-  color: black;
+  color: #333333;
 }
 
 th, td {
@@ -37,12 +37,16 @@ th, td {
 
 td a {
   display: block;
-  color: black;
+  color: #333333;
   background-color: white;
   padding: 5px;
 }
 
 td a:hover {
-  background: black;
+  background: #333333;
   color: white;
+}
+
+.curent-advert-buttons{
+
 }

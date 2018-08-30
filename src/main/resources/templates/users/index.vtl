@@ -2,11 +2,11 @@
 
 <div class="usersContainer">
 
+    <a class="button-create" href="/users/new">Create Account</a>
+
     <form action="/users" method="get" class="search" autocomplete="off">
         <input class="search-adverts" type="search" name="search" placeholder="Search Users...">
     </form>
-
-    <a class="button-create" href="/users/new">Create Account</a>
 
     <table>
 
@@ -17,29 +17,29 @@
 
         #if ($searchResults.size() > 0)
 
-            #foreach ($user in $searchResults)
-                <tr>
-                    <td><a href="/users/$user.getId()">$user.getUsername()</a></td>
-                    #if ($user.calculateAverageRatingReceived() != $null)
-                        <td>$user.calculateAverageRatingReceived()</td>
-                    #else
-                        <td>-</td>
-                    #end
-                </tr>
+        #foreach ($user in $searchResults)
+        <tr>
+            <td><a href="/users/$user.getId()">$user.getUsername()</a></td>
+            #if ($user.calculateAverageRatingReceived() != $null)
+            <td>$user.calculateAverageRatingReceived()</td>
+            #else
+            <td>-</td>
             #end
+        </tr>
+        #end
 
         #else
 
-            #foreach ($user in $allUsers)
-                <tr>
-                    <td><a href="/users/$user.getId()">$user.getUsername()</a></td>
-                    #if ($user.calculateAverageRatingReceived() != $null)
-                        <td><a href="/users/$user.getId()/ratings">$user.calculateAverageRatingReceived()</a></td>
-                    #else
-                        <td>-</td>
-                    #end
-                </tr>
-             #end
+        #foreach ($user in $allUsers)
+        <tr>
+            <td><a href="/users/$user.getId()">$user.getUsername()</a></td>
+            #if ($user.calculateAverageRatingReceived() != $null)
+            <td><a href="/users/$user.getId()/ratings">$user.calculateAverageRatingReceived()</a></td>
+            #else
+            <td>-</td>
+            #end
+        </tr>
+        #end
 
         #end
     </table>

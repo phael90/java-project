@@ -6,7 +6,7 @@
 
     <div class="user-details-container">
 
-        <ul>
+        <ul class="user-info">
             <li>Username: $user.getUsername()</li>
             <li>First Name: $user.getFirstName()</li>
             <li>Last Name: $user.getLastName()</li>
@@ -20,24 +20,24 @@
 
         #if ($averageRating != $null)
 
-
-            <p>Average Rating: <a href="/users/$user.getId()/ratings">$averageRating</a></p>
+        <p class="user-rating">Average Rating: <a class="user-rating-a" href="/users/$user.getId()/ratings">$averageRating</a>
+        </p>
 
         #else
-        <p>No Reviews have been made about this user!</p>
+        <p class="user-reviews-tag">No reviews for this user, be first!</p>
         #end
 
-        <a href="/users/$user.getId()/ratings/new" class="button-user-edit">Make a Review</a>
+        <a href="/users/$user.getId()/ratings/new" class="button-user-review">Make a Review</a>
 
     </div>
 
 </div>
-
+<!--<div class="user-buttons-text"><p>Take an action</p></div>-->
 <div class="user-buttons-container">
     <form action="/users/$user.getId()/delete/confirm" method="get">
         <input type="submit" class="button-container" value="Delete Account">
     </form>
-<div><a class="button-container" chref="/adverts/new">Create Advert</a></div>
+    <div><a class="button-container" href="/adverts/new">Create Advert</a></div>
 
 </div>
 
@@ -51,7 +51,7 @@
 
     <p class="sub-heading">Current Adverts</p>
 
-    <table>
+    <table class="user-adverts-list">
 
         <tr>
             <th>Title</th>
@@ -64,16 +64,18 @@
             <td>$advert.getTitle()</td>
             <td>$advert.getCategory().getNiceName()</td>
             <td>$advert.getPrice()</td>
-            <td>
-                <form action="/adverts/$advert.getId()/delete/by_user/$user.getId()" method="post">
-                    <input type="submit" class="button-delete" value="Delete">
-                </form>
-            </td>
-            <td>
-                <form action="/adverts/$advert.getId()/archive/by_user/$user.getId()" method="post">
-                    <input type="submit" class="button-archive" value="Archive">
-                </form>
-            </td>
+            <div class="curent-advert-buttons">
+                <td>
+                    <form action="/adverts/$advert.getId()/delete/by_user/$user.getId()" method="post">
+                        <input type="submit" class="button-delete" value="Delete">
+                    </form>
+                </td>
+                <td>
+                    <form action="/adverts/$advert.getId()/archive/by_user/$user.getId()" method="post">
+                        <input type="submit" class="button-archive" value="Archive">
+                    </form>
+                </td>
+            </div>
         </tr>
         #end
 

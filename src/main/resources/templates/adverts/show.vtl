@@ -1,42 +1,46 @@
 #if ($advert != $null)
+<div class="advert-details">
+<p class="heading">$advert.getTitle()</p>
 
-    <p class="heading">$advert.getTitle()</p>
+<div class="advert-details-container">
+    <ul>
+        <li>Title: $advert.getTitle()</li>
+        <li>Description: $advert.getDescription()</li>
+        <li>Category: $advert.getCategory().getNiceName()</li>
+        <li>Price: $advert.getPrice()</li>
+        <li><a href="/users/$advert.getUser().getId()">User: $advert.getUser().getUsername()</a></li>
+    </ul>
+</div>
+</div>
+<div class="advert-button-container">
+<form class="advert-button-grey" action="/adverts/$advert.getId()/delete" method="post">
+    <input type="submit" value="Delete Advert" class="advert-button-grey">
+</form>
 
-    <div class="advert-details-container">
-        <ul>
-            <li>Title: $advert.getTitle()</li>
-            <li>Description: $advert.getDescription()</li>
-            <li>Category: $advert.getCategory().getNiceName()</li>
-            <li>Price: $advert.getPrice()</li>
-            <li><a href="/users/$advert.getUser().getId()">User: $advert.getUser().getUsername()</a></li>
-        </ul>
-    </div>
+<form class="advert-button-grey" action="/adverts/$advert.getId()/archive" method="post">
+    <input type="submit"  value="Archive Advert" class="advert-button-grey">
+</form>
 
-        <form action="/adverts/$advert.getId()/delete" method="post">
-            <input type="submit" class="button-delete" value="Delete Advert">
-        </form>
+<a class="underline" href="/adverts/$advert.getId()/edit">Edit Advert</a>
+</div>
 
-        <form action="/adverts/$advert.getId()/archive" method="post">
-            <input type="submit" class="button-archive" value="Archive Advert">
-        </form>
+<div class="advert-review-container">
 
-            <a class="button-edit" href="/adverts/$advert.getId()/edit">Edit Advert</a>
+    <p class="sub-heading">Comments</p>
 
+    <a class="button-advert" href="/adverts/$advert.getId()/comments/new">Add Comment</a>
 
+    #foreach ($comment in $advertComments)
+    <ul class="comment-box">
+        <li class="rater-comment" <a href="/users/$comment.getUser().getId()">$comment.getUser().getUsername()</a></li>
+        <li>$comment.getMessage()</li>
+    </ul>
+    #end
 
-        <p class="sub-heading">Comments</p>
-
-        <a class="button-create" href="/adverts/$advert.getId()/comments/new">Add Comment</a>
-
-        #foreach ($comment in $advertComments)
-            <ul class="comment-box">
-                <li><a href="/users/$comment.getUser().getId()">$comment.getUser().getUsername()</a></li>
-                <li>$comment.getMessage()</li>
-            </ul>
-        #end
-
-#else
+    #else
 
     <p class="error-message">This advert does not exist!</p>
 
-#end
+    #end
+
+</div>

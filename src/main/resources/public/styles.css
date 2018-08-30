@@ -3,7 +3,7 @@
   margin: 0;
   font-family: Verdana;
   text-align: center;
-  color: black;
+  color: #333333;
   box-sizing: border-box;
 }
 
@@ -15,20 +15,29 @@ a:hover {
   text-decoration: underline;
 }
 
+.user-reviews-tag{
+  margin-top: 70px;
+  margin-bottom: 53px;
+  font-size: 20px;
+}
+
 .heading {
   padding: 20px;
   width: 100%;
   background-color: white;
   clear: right;
   font-size: 2em;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .sub-heading {
   padding: 20px;
   width: 100%;
   background-color: white;
-  color: black;
-  font-size: 1.5em;
+  color: #333333;
+  font-size: 33px;
+  margin-top: 75px;
 }
 
 .none-found {
@@ -54,11 +63,12 @@ a:hover {
   display: flex;
   justify-content: space-evenly;
   margin-right: -74%;
-  background-color: rgb(80 80 80);
+  background-color: rgb(230 230 230);
 }
 
 .user-details-container ul li {
   list-style: none;
+  text-align: left;
 }
 
 .user-details-container {
@@ -84,27 +94,43 @@ a:hover {
 }
 
 .advert-details-container {
-  padding: 10px;
-  border: 1px solid black;
-  width: 40%;
+  padding: 40px;
   display: inline-block;
-  margin: 10px 0px;
+  width: 40%;
+  height: auto;
+  /* border: 3px solid #F2F2F2; */
+  margin: auto;
+  /* border-radius: 2px; */
 }
 
 .advert-details-container ul li {
   list-style: none;
 }
 
+.advert-details{
+  padding-bottom: 6px;
+  padding-top: 6px;
+  width: 53%;
+  height: auto;
+  margin: auto;
+  margin-top: 26px;
+  border: 1px solid #D7D7D7;
+  border-radius: 2px;
+}
 .comment-box {
   padding: 10px;
-  border: 1px solid black;
   display: block;
-  width: 80%;
+  min-width: 40%;
+  width: 40%;
+  max-height: auto;
   margin: 20px auto;
+  border-bottom: 1px solid #333333;
+  border-top: 1px solid #333333;
 }
 
 .comment-box li {
   list-style: none;
+  align-items: left;
 }
 
 .confirm-delete-container {
@@ -113,6 +139,13 @@ a:hover {
   margin-top: 50px;
   padding: 20px;
   border: 5px solid red;
+}
+
+.rater-comment{
+  font-size: 21px;
+  text-align: unset;
+  padding: 30px;
+  color: black;
 }
 
 .rating-display p:first-child {
@@ -125,4 +158,11 @@ a:hover {
   color: white;
   padding-top: 40px;
   text-decoration: underline;
+}
+
+.advert-review-container{
+  padding-bottom: 6px;
+  width: 80%;
+  height: auto;
+  margin: auto
 }
