@@ -6,6 +6,7 @@ import spark.template.velocity.VelocityTemplateEngine;
 import java.util.HashMap;
 
 import static spark.Spark.get;
+import static spark.Spark.port;
 import static spark.Spark.staticFileLocation;
 
 public class MainController {
@@ -18,6 +19,7 @@ public class MainController {
         UserController userController = new UserController();
         CommentController commentController = new CommentController();
         RatingsController ratingsController = new RatingsController();
+        port(getHerokuAssignedPort());
 
 //        HOME PAGE
         get("/", (req, res) -> {
@@ -31,4 +33,13 @@ public class MainController {
 
     }
 
+
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
 }
+
