@@ -10,8 +10,8 @@
         <!--<property name="hibernate.connection.username"></property>-->
         <!--<property name="hibernate.connection.password"></property>-->
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/gumtreedb</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://<ec2-54-221-225-11.compute-1.amazonaws.com>/<d7vdatgc5ne4ke
-        >?user=<gnqozlphtfnxsx>&amp;password=<c23cca5a41497618dbf836dce38df126e9b8761e0dc2df05af281cb95401ab86> </property>
+        <property name="hibernate.connection.url">jdbc:postgresql://ec2-54-221-225-11.compute-1.amazonaws.com
+            :5432/d1ul0batb56t4h?user=oabzvtzchqohrr&amp;password=4ba6073d040207c7388724d94b4483791fc6accb8fdb77337ade5ae688819d57</property>
 
         <property name="connection_pool_size">1</property>
         <property name="hbm2ddl.auto">update</property>

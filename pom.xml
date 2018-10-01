@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.codeclan.java_project</groupId>
-    <artifactId>TreeGum</artifactId>
+    <artifactId>treegum</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -48,12 +48,12 @@
                 <configuration>
                     <jdkVersion>1.8</jdkVersion>
                     <!-- Use your own application name -->
-                    <appName>TreeGum</appName>
+                    <appName>treegum</appName>
                     <processTypes>
                         <!-- Tell Heroku how to launch your application -->
                         <!-- You might have to remove the ./ in front   -->
                         <!-- Use your own app name for the jar file -->
-                        <web>java -jar ./target/TreeGum-1.0-SNAPSHOT-jar-with-dependencies.jar</web>
+                        <web>java -jar ./target/treegum-1.0-SNAPSHOT-jar-with-dependencies.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>

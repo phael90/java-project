@@ -12,16 +12,16 @@ import static spark.Spark.staticFileLocation;
 public class MainController {
 
     public static void main(String[] args) {
-
+        port(getHerokuAssignedPort());
         staticFileLocation("/public");
 
         AdvertController advertController = new AdvertController();
         UserController userController = new UserController();
         CommentController commentController = new CommentController();
         RatingsController ratingsController = new RatingsController();
-        port(getHerokuAssignedPort());
 
-//        HOME PAGE
+
+//HOME PAGE
         get("/", (req, res) -> {
 
             HashMap<String, Object> model = new HashMap<>();
