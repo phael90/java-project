@@ -53,7 +53,7 @@
                         <!-- Tell Heroku how to launch your application -->
                         <!-- You might have to remove the ./ in front   -->
                         <!-- Use your own app name for the jar file -->
-                        <web>java -jar ./target/treegum-1.0-SNAPSHOT-jar-with-dependencies.jar</web>
+                        <web>java -jar target/treegum-1.0-SNAPSHOT-jar-with-dependencies.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>
